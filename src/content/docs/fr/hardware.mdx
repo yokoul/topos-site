@@ -4,6 +4,8 @@ description: Liste d'achat, boîtiers à imprimer (STL + sources OpenSCAD), firm
 template: splash
 ---
 
+import Shot from '../../../components/Shot.astro';
+
 <div class="tp-splash">
 
 ## Trois ancres, un tag, une imprimante.
@@ -53,6 +55,8 @@ Deux pièces, base et couvercle clipsable, FDM **sans support**. Conçus pour le
 ## Firmware des ancres
 
 Arduino pour ESP32-S3 : ranging UWB, WiFi par portail captif (pas de reflash par salle), envoi UDP vers Topos, écran OLED avec l'identifiant et l'IP. Un seul paramètre à changer par ancre avant de flasher : son numéro.
+
+<Shot name="mauwb-reset" alt="Module MaUWB ESP32-S3 vu de dessus, bouton RST entouré en bas à gauche de l'écran OLED" title="Changer de salle">deux pressions sur <b>RST</b> en moins de 10 s effacent le WiFi mémorisé et rouvrent le portail de configuration. L'autre bouton, FLASH, ne sert qu'au flashage. Détail au <a href="/fr/start/02-anchors/#changing-wifi-network-new-venue">chapitre 2.4</a>.</Shot>
 
 <a class="sl-link-button secondary" href="/fr/reference/02-firmware/">Guide du firmware</a>
 

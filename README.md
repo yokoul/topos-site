@@ -24,7 +24,7 @@ Thème « Plan de scène, édition lisible » — tokens dans `src/styles/topos.
 
 Pull-based sur `always` : voir [`ops/README.md`](ops/README.md). GitHub Actions ne fait que vérifier le build.
 
-Le site est en `noindex` tant que `NOINDEX = true` dans `astro.config.mjs` et que `public/robots.txt` interdit tout. Les deux se retirent au lancement.
+Pour masquer le site aux moteurs (avant une refonte, par exemple) : `NOINDEX = true` dans `astro.config.mjs` et `Disallow: /` dans `public/robots.txt`.
 
 ## Licences
 

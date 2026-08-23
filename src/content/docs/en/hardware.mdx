@@ -4,6 +4,8 @@ description: Shopping list, printable cases (STL + OpenSCAD sources), anchor fir
 template: splash
 ---
 
+import Shot from '../../../components/Shot.astro';
+
 <div class="tp-splash">
 
 ## Three anchors, one tag, a printer.
@@ -53,6 +55,8 @@ Two parts, base and snap-on lid, FDM **with no supports**. Designed for the MaUW
 ## Anchor firmware
 
 Arduino for ESP32-S3: UWB ranging, WiFi via captive portal (no reflash per venue), UDP streaming to Topos, OLED showing the anchor ID and IP. One parameter to change per anchor before flashing: its number.
+
+<Shot name="mauwb-reset" alt="MaUWB ESP32-S3 module seen from above, RST button circled at the bottom left of the OLED" title="Changing venue">press <b>RST</b> twice within 10 s to wipe the stored WiFi and reopen the setup portal. The other button, FLASH, is only for flashing. Details in <a href="/en/start/02-anchors/#changing-wifi-network-new-venue">chapter 2.4</a>.</Shot>
 
 <a class="sl-link-button secondary" href="/en/reference/02-firmware/">Firmware guide</a>
 

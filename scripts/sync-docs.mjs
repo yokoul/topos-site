@@ -33,6 +33,13 @@ const run = promisify(execFile);
  * (authentifié sur always et sur les postes), ou par GITHUB_TOKEN si fourni.
  * SYNC_DOCS_OPTIONAL=1 (CI) : en cas d'échec, on avertit et on construit sans docs.
  */
+async function sourceBytes(path) {
+	if (LOCAL) return readFile(join(LOCAL, path));
+	const res = await fetch(`https://raw.githubusercontent.com/yokoul/topos/${REF}/${path}`);
+	if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+	return Buffer.from(await res.arrayBuffer());
+}
+
 async function source(path) {
 	if (LOCAL) return readFile(join(LOCAL, path), 'utf8');
 	const api = `repos/yokoul/topos/contents/${path}?ref=${REF}`;
@@ -72,9 +79,19 @@ function frontmatter(fields) {
 	return lines.join('\n');
 }
 
+const ASSETS = 'src/assets/docs';
 async function emit(path, fm, body) {
 	const dest = join(OUT, path);
 	await mkdir(dirname(dest), { recursive: true });
+	// images du guide (docs/images/*) → src/assets/docs/, optimisées par Astro
+	const depth = path.split('/').length; // en/start/x.md → 3 niveaux sous src/content/docs
+	const up = '../'.repeat(depth + 1); // remonte jusqu'à src/
+	for (const m of body.matchAll(/\]\(images\/([^)\s]+)\)/g)) {
+		const name = m[1];
+		await mkdir(ASSETS, { recursive: true });
+		await writeFile(join(ASSETS, name), await sourceBytes(`docs/images/${name}`));
+		body = body.replaceAll(`](images/${name})`, `](${up}assets/docs/${name})`);
+	}
 	await writeFile(dest, frontmatter(fm) + body.trim() + '\n');
 	console.log(`✓ ${dest}`);
 }

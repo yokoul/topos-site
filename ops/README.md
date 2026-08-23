@@ -22,6 +22,6 @@ Zero Trust → Networks → Tunnels → le tunnel d'always → Public Hostname :
 `topos.red` → `http://localhost:8080`, puis `www.topos.red` → idem.
 Cloudflare crée les CNAME vers `<id>.cfargotunnel.com` tout seul ; ne pas créer d'autre enregistrement A/CNAME sur ces noms.
 
-## Lancement (phase 4)
+## Lancé le 23 août 2026
 
-`NOINDEX = false` dans `astro.config.mjs`, `public/robots.txt` → `Allow: /`, et passer le repo GitHub en public.
+Site indexable, repos `topos` et `topos-site` publics. Pour masquer à nouveau : `NOINDEX = true` + `Disallow: /`.

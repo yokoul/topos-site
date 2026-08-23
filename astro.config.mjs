@@ -3,8 +3,8 @@ import { defineConfig } from 'astro/config';
 import starlight from '@astrojs/starlight';
 import sitemap from '@astrojs/sitemap';
 
-// Phase 0 : le site est en ligne mais non indexé. Retirer NOINDEX au lancement (phase 4).
-const NOINDEX = true;
+// Lancement (phase 4, 23 août 2026) : site indexable. Remettre à true pour masquer aux moteurs.
+const NOINDEX = false;
 
 export default defineConfig({
 	site: 'https://topos.red',
