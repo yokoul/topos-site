@@ -19,19 +19,45 @@
  */
 import { mkdir, readFile, writeFile, rm } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 
 const REF = process.env.TOPOS_REF ?? 'main';
-const RAW = `https://raw.githubusercontent.com/yokoul/topos/${REF}`;
 const LOCAL = process.env.TOPOS_DIR;
 const OUT = 'src/content/docs';
 const BANNER = `# Généré par scripts/sync-docs.mjs depuis yokoul/topos@${REF} — ne pas éditer ici.`;
+const run = promisify(execFile);
 
+/**
+ * Le dépôt topos est privé (jusqu'au lancement) : on passe par `gh api`
+ * (authentifié sur always et sur les postes), ou par GITHUB_TOKEN si fourni.
+ * SYNC_DOCS_OPTIONAL=1 (CI) : en cas d'échec, on avertit et on construit sans docs.
+ */
 async function source(path) {
 	if (LOCAL) return readFile(join(LOCAL, path), 'utf8');
-	const res = await fetch(`${RAW}/${path}`);
-	if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
-	return res.text();
+	const api = `repos/yokoul/topos/contents/${path}?ref=${REF}`;
+	if (process.env.GITHUB_TOKEN) {
+		const res = await fetch(`https://api.github.com/${api}`, {
+			headers: { Authorization: `Bearer ${process.env.GITHUB_TOKEN}`, Accept: 'application/vnd.github.raw' },
+		});
+		if (!res.ok) throw new Error(`${path}: HTTP ${res.status}`);
+		return res.text();
+	}
+	const { stdout } = await run('gh', ['api', api, '-H', 'Accept: application/vnd.github.raw'], { maxBuffer: 8e6 });
+	return stdout;
 }
+
+try {
+	await main();
+} catch (err) {
+	if (process.env.SYNC_DOCS_OPTIONAL) {
+		console.warn(`⚠ import des docs ignoré : ${err.message}`);
+		process.exit(0);
+	}
+	throw err;
+}
+
+async function main() {
 
 function frontmatter(fields) {
 	const lines = ['---'];
@@ -135,3 +161,4 @@ await emit('en/reference/02-firmware.md', {
 
 // nettoyage d'éventuels restes d'anciens runs
 await rm(join(OUT, 'en/venue/guide.md'), { force: true });
+}
