@@ -18,7 +18,7 @@ const lic = licences[lang as keyof typeof licences] ?? licences.en;
 </nav>
 <div class="tp-foot">
 	<span class="tp-signature"><b>topos.red</b> — Real-time · Environment · Distance</span>
-	<span class="tp-signature">{lic}</span>
+	<span class="tp-signature"><a href="mailto:hello@topos.red">hello@topos.red</a> · {lic}</span>
 </div>
 
 <style>
@@ -35,6 +35,15 @@ const lic = licences[lang as keyof typeof licences] ?? licences.en;
 		font-size: 0.9375rem;
 		color: var(--tp-ink-2);
 		text-decoration: none;
+	}
+	.tp-foot a {
+		color: var(--tp-ink-2);
+		text-decoration: none;
+		border-bottom: 1px solid var(--tp-rule);
+	}
+	.tp-foot a:hover {
+		color: var(--tp-red);
+		border-bottom-color: var(--tp-red);
 	}
 	.tp-foot {
 		display: flex;
