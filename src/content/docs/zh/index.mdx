@@ -14,6 +14,8 @@ hero:
       variant: secondary
 ---
 
+import Shot from '../../../components/Shot.astro';
+
 <div class="tp-strip">
   <div><b>~10 cm</b><span>激光测距仪校准后的精度</span></div>
   <div><b>&lt; 5 min</b><span>从通电到第一个移动的点</span></div>
@@ -34,6 +36,16 @@ hero:
     <li><div><b>用激光测距仪测量，以毫米输入</b><span>Topos 通过三边测量推算基站位置。</span></div><small>15 分钟</small></li>
     <li><div><b>连接控台</b><span>PSN 到 grandMA、Augment3d 或 Soma，OSC 到 QLab，Art-Net 到电脑灯。</span></div><small>5 分钟</small></li>
   </ol>
+</div>
+
+<div class="tp-section">
+  <div>
+    <span class="tp-label">仪表盘</span>
+    <h2>俯瞰舞台。</h2>
+    <p>基站显示为菱形，演员显示为带轨迹的圆点，坐标以米为单位。校准、输出和预设一键可达。一切都在浏览器中运行，控制台端无需安装任何东西。</p>
+    <a class="sl-link-button secondary" href="/zh/gallery/">查看图库</a>
+  </div>
+  <Shot name="dashboard-show" alt="Topos 仪表盘演出模式：三个基站，三位已命名的演员在移动" title="演出模式">三个基站，三位演员，模拟运行。</Shot>
 </div>
 
 <div class="tp-section">

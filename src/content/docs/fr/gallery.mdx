@@ -1,0 +1,29 @@
+---
+title: Galerie
+description: Le dashboard Topos en images, et bientôt l'atelier et le plateau.
+template: splash
+---
+
+import Shot from '../../../components/Shot.astro';
+
+<div class="tp-splash">
+
+## Le dashboard
+
+Captures réalisées en mode `--simulate` : trois ancres, trois performers, aucun matériel. C'est exactement ce que vous verrez après `python -m topos.main --simulate circle`.
+
+<div class="tp-gallery">
+  <Shot name="dashboard-show" alt="Dashboard Topos en mode show : vue du plateau, trois ancres en losanges, trois performers nommés avec leur trace" title="Show">la vue de régie. Le plateau vu d'en haut, FACE en bas, LOINTAIN en haut. Chaque performer a son nom, sa position en mètres, sa qualité de signal et son délai de ghost.</Shot>
+  <Shot name="dashboard-anchors" alt="Dashboard Topos en mode anchors : panneau de calibration avec hauteurs et distances en millimètres, liste des presets" title="Anchors">la calibration. Hauteur et distances de chaque ancre en millimètres, telles que lues au télémètre ; Topos calcule les positions. Les presets enregistrent une salle entière.</Shot>
+  <Shot name="dashboard-outputs" alt="Dashboard Topos en mode outputs : cartes PSN, OSC, ADM-OSC, WebSocket, Art-Net avec leurs interrupteurs et destinations" title="Outputs">les sorties. Un interrupteur par protocole, la destination et la cadence en clair. PSN en multicast vers la console, OSC vers le son.</Shot>
+</div>
+
+## L'atelier et le plateau
+
+<div class="tp-gallery">
+  <div class="tp-placeholder"><b>Boîtiers imprimés</b>Photos des ancres ouvertes et fermées, à venir après les essais d'impression.</div>
+  <div class="tp-placeholder"><b>En salle</b>Ancres posées au Douze Dix-Huit, tag sur un performer, télémètre en main.</div>
+  <div class="tp-placeholder"><b>Vidéos</b>« Le tracking en cinq minutes » et « la calibration au télémètre », en tournage.</div>
+</div>
+
+</div>

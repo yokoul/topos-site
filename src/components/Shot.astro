@@ -1,0 +1,21 @@
+---
+/**
+ * Capture d'écran optimisée (Astro Image) avec légende.
+ *   <Shot name="dashboard-show" alt="…">Légende</Shot>
+ */
+import { Image } from 'astro:assets';
+const shots = import.meta.glob<{ default: ImageMetadata }>('../assets/screens/*.png', { eager: true });
+interface Props {
+	name: string;
+	alt: string;
+	title?: string;
+}
+const { name, alt, title } = Astro.props;
+const src = shots[`../assets/screens/${name}.png`]?.default;
+if (!src) throw new Error(`Shot introuvable : ${name}`);
+---
+
+<figure class="tp-shot">
+	<Image {src} {alt} widths={[800, 1200, 1920]} sizes="(max-width: 50rem) 100vw, 46rem" format="webp" quality={82} />
+	<figcaption>{title && <b>{title} — </b>}<slot /></figcaption>
+</figure>

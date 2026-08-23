@@ -1,0 +1,29 @@
+---
+title: 图库
+description: Topos 仪表盘截图，工作坊与舞台照片即将上线。
+template: splash
+---
+
+import Shot from '../../../components/Shot.astro';
+
+<div class="tp-splash">
+
+## 仪表盘
+
+以 `--simulate` 模式截取：三个基站，三位演员，无需任何硬件。运行 `python -m topos.main --simulate circle` 后看到的就是这个。
+
+<div class="tp-gallery">
+  <Shot name="dashboard-show" alt="Topos 仪表盘演出模式：舞台俯视图，三个菱形基站，三位带轨迹的已命名演员" title="演出">操作员视图。俯瞰舞台，台前在下，台后在上。每位演员都有名字、以米为单位的位置、信号质量和 ghost 超时。</Shot>
+  <Shot name="dashboard-anchors" alt="Topos 仪表盘基站模式：校准面板，以毫米显示高度和距离，预设列表" title="基站">校准。每个基站的高度和距离以毫米输入，即激光测距仪的读数；Topos 计算位置。预设可保存整个场馆。</Shot>
+  <Shot name="dashboard-outputs" alt="Topos 仪表盘输出模式：PSN、OSC、ADM-OSC、WebSocket 和 Art-Net 卡片及其开关与目标地址" title="输出">输出。每个协议一个开关，目标地址和速率一目了然。PSN 组播到控台，OSC 到音频。</Shot>
+</div>
+
+## 工作坊与舞台
+
+<div class="tp-gallery">
+  <div class="tp-placeholder"><b>打印外壳</b>基站打开和闭合的照片，打印测试后发布。</div>
+  <div class="tp-placeholder"><b>在场馆</b>安装在 Douze Dix-Huit 的基站，演员身上的标签，手持激光测距仪。</div>
+  <div class="tp-placeholder"><b>视频</b>《五分钟上手定位》和《激光测距仪校准》，拍摄中。</div>
+</div>
+
+</div>

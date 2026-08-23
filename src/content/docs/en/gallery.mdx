@@ -1,0 +1,29 @@
+---
+title: Gallery
+description: The Topos dashboard in pictures, and soon the workshop and the stage.
+template: splash
+---
+
+import Shot from '../../../components/Shot.astro';
+
+<div class="tp-splash">
+
+## The dashboard
+
+Captured in `--simulate` mode: three anchors, three performers, no hardware. This is exactly what you get after `python -m topos.main --simulate circle`.
+
+<div class="tp-gallery">
+  <Shot name="dashboard-show" alt="Topos dashboard in show mode: stage view, three anchors as diamonds, three named performers with their trail" title="Show">the operator's view. The stage from above, downstage at the bottom, upstage at the top. Each performer has a name, a position in metres, a signal quality and a ghost timeout.</Shot>
+  <Shot name="dashboard-anchors" alt="Topos dashboard in anchors mode: calibration panel with heights and distances in millimetres, preset list" title="Anchors">calibration. Height and distances of each anchor in millimetres, as read on the laser meter; Topos computes the positions. Presets save a whole venue.</Shot>
+  <Shot name="dashboard-outputs" alt="Topos dashboard in outputs mode: PSN, OSC, ADM-OSC, WebSocket and Art-Net cards with their switches and destinations" title="Outputs">the outputs. One switch per protocol, destination and rate in plain sight. PSN multicast to the console, OSC to audio.</Shot>
+</div>
+
+## Workshop and stage
+
+<div class="tp-gallery">
+  <div class="tp-placeholder"><b>Printed cases</b>Photos of anchors open and closed, after print testing.</div>
+  <div class="tp-placeholder"><b>In the venue</b>Anchors rigged at Douze Dix-Huit, a tag on a performer, laser meter in hand.</div>
+  <div class="tp-placeholder"><b>Videos</b>"Tracking in five minutes" and "laser-meter calibration", being shot.</div>
+</div>
+
+</div>

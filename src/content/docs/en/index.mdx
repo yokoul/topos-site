@@ -14,6 +14,8 @@ hero:
       variant: secondary
 ---
 
+import Shot from '../../../components/Shot.astro';
+
 <div class="tp-strip">
   <div><b>~10 cm</b><span>accuracy after laser-meter calibration</span></div>
   <div><b>&lt; 5 min</b><span>from plugging in to the first moving dot</span></div>
@@ -34,6 +36,16 @@ hero:
     <li><div><b>Measure with the laser meter, enter in millimetres</b><span>Topos derives anchor positions by trilateration.</span></div><small>15 min</small></li>
     <li><div><b>Connect the console</b><span>PSN to grandMA, Augment3d or Soma, OSC to QLab, Art-Net to moving heads.</span></div><small>5 min</small></li>
   </ol>
+</div>
+
+<div class="tp-section">
+  <div>
+    <span class="tp-label">Dashboard</span>
+    <h2>The stage from above.</h2>
+    <p>Anchors as diamonds, performers as dots with their trail, coordinates in metres. Calibration, outputs and presets one click away. It all runs in a browser — nothing to install at the desk.</p>
+    <a class="sl-link-button secondary" href="/en/gallery/">See the gallery</a>
+  </div>
+  <Shot name="dashboard-show" alt="Topos dashboard in show mode: three anchors, three named performers moving" title="Show mode">three anchors, three performers in simulation.</Shot>
 </div>
 
 <div class="tp-section">

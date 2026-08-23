@@ -13,15 +13,16 @@ const { locale = 'en', lang, id } = Astro.locals.starlightRoute;
 const base = `/${locale}`;
 const labels =
 	{
-		en: { project: 'Project', docs: 'Docs', hardware: 'Hardware' },
-		fr: { project: 'Projet', docs: 'Docs', hardware: 'Matériel' },
-		'zh-CN': { project: '项目', docs: '文档', hardware: '硬件' },
-	}[lang] ?? { project: 'Project', docs: 'Docs', hardware: 'Hardware' };
+		en: { project: 'Project', docs: 'Docs', hardware: 'Hardware', gallery: 'Gallery' },
+		fr: { project: 'Projet', docs: 'Docs', hardware: 'Matériel', gallery: 'Galerie' },
+		'zh-CN': { project: '项目', docs: '文档', hardware: '硬件', gallery: '图库' },
+	}[lang] ?? { project: 'Project', docs: 'Docs', hardware: 'Hardware', gallery: 'Gallery' };
 
 const nav = [
 	{ href: `${base}/project/`, label: labels.project, active: id.endsWith('/project') },
 	{ href: `${base}/start/01-hardware/`, label: labels.docs, active: /\/(start|venue|reference)\//.test(id) },
 	{ href: `${base}/hardware/`, label: labels.hardware, active: id.endsWith('/hardware') },
+	{ href: `${base}/gallery/`, label: labels.gallery, active: id.endsWith('/gallery') },
 ];
 
 const shouldRenderSearch =

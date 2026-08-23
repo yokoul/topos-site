@@ -437,3 +437,50 @@ h1[data-page-title],
 .tp-bom th:last-child {
 	white-space: nowrap;
 }
+
+/* ── captures / galerie ── */
+.tp-shot {
+	margin: 1.5rem 0 0;
+	border: 1px solid var(--tp-rule);
+	border-radius: var(--tp-radius-lg);
+	overflow: hidden;
+	background: var(--tp-ink);
+	box-shadow: var(--sl-shadow-lg);
+}
+.tp-shot img {
+	display: block;
+	width: 100%;
+	height: auto;
+}
+.tp-shot figcaption {
+	padding: 0.7rem 1rem;
+	font-size: 0.875rem;
+	color: var(--tp-ink-2);
+	background: var(--tp-paper-2);
+	border-top: 1px solid var(--tp-rule);
+}
+.tp-shot figcaption b {
+	color: var(--tp-ink);
+	font-weight: 700;
+}
+.tp-gallery {
+	display: grid;
+	gap: 2rem;
+	margin-top: 1rem;
+}
+.tp-placeholder {
+	border: 1px dashed var(--tp-rule);
+	border-radius: var(--tp-radius-lg);
+	padding: 2rem 1.5rem;
+	text-align: center;
+	color: var(--tp-ink-3);
+	font-size: 0.9375rem;
+}
+.tp-placeholder b {
+	display: block;
+	font-family: var(--tp-font-display);
+	font-weight: 800;
+	font-size: 1.1rem;
+	color: var(--tp-ink-2);
+	margin-bottom: 0.25rem;
+}

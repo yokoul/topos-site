@@ -14,6 +14,8 @@ hero:
       variant: secondary
 ---
 
+import Shot from '../../../components/Shot.astro';
+
 <div class="tp-strip">
   <div><b>~10 cm</b><span>de précision après calibration au télémètre</span></div>
   <div><b>&lt; 5 min</b><span>du branchement au premier point qui bouge</span></div>
@@ -34,6 +36,16 @@ hero:
     <li><div><b>Mesurer au télémètre, saisir en millimètres</b><span>Topos déduit les positions des ancres par trilatération.</span></div><small>15 min</small></li>
     <li><div><b>Brancher la console</b><span>PSN vers grandMA, Augment3d ou Soma, OSC vers QLab, Art-Net vers les projecteurs.</span></div><small>5 min</small></li>
   </ol>
+</div>
+
+<div class="tp-section">
+  <div>
+    <span class="tp-label">Dashboard</span>
+    <h2>Le plateau vu d'en haut.</h2>
+    <p>Les ancres en losanges, les performers en points avec leur trace, les coordonnées en mètres. Calibration, sorties et presets à portée de clic. Tout ça tourne dans un navigateur, sans rien installer côté régie.</p>
+    <a class="sl-link-button secondary" href="/fr/gallery/">Voir la galerie</a>
+  </div>
+  <Shot name="dashboard-show" alt="Dashboard Topos en mode show : trois ancres, trois performers nommés en mouvement" title="Mode show">trois ancres, trois performers en simulation.</Shot>
 </div>
 
 <div class="tp-section">
