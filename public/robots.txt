@@ -1,3 +1,4 @@
-# Phase 0 : site en construction, non indexé. Remplacer par « Allow: / » au lancement.
 User-agent: *
-Disallow: /
+Allow: /
+
+Sitemap: https://topos.red/sitemap-index.xml
