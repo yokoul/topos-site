@@ -30,11 +30,17 @@ export default defineConfig({
 				SiteTitle: './src/components/SiteTitle.astro',
 				Hero: './src/components/Hero.astro',
 				Header: './src/components/Header.astro',
+				MobileMenuFooter: './src/components/MobileMenuFooter.astro',
 				Footer: './src/components/Footer.astro',
 			},
-			head: NOINDEX
-				? [{ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' } }]
-				: [],
+			head: [
+				{ tag: 'meta', attrs: { property: 'og:image', content: 'https://topos.red/og.png' } },
+				{ tag: 'meta', attrs: { property: 'og:image:width', content: '1200' } },
+				{ tag: 'meta', attrs: { property: 'og:image:height', content: '630' } },
+				{ tag: 'meta', attrs: { name: 'twitter:card', content: 'summary_large_image' } },
+				{ tag: 'meta', attrs: { name: 'twitter:image', content: 'https://topos.red/og.png' } },
+				...(NOINDEX ? [{ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' } }] : []),
+			],
 			sidebar: [
 				{
 					label: 'Start',

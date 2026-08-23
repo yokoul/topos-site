@@ -89,6 +89,13 @@ function clean(md) {
 		});
 }
 
+/** Liens internes du guide → pages du site. */
+function relink(md) {
+	return md
+		.replace(/\]\(auto_calibration\.md\)/g, '](/en/venue/04-auto-calibration/)')
+		.replace(/\]\(#2d--3d-trilateration\)/g, '](/en/venue/03-production/#2d--3d-trilateration)');
+}
+
 /** Remonte les titres d'un niveau (### → ##) et retire la numérotation « 7.1 ». */
 function promote(md) {
 	return md.replace(/^(#{3,6}) (?:\d+\.\d+\s+)?/gm, (_, h) => h.slice(1) + ' ');
@@ -115,7 +122,7 @@ for (const part of parts) {
 	const [, n, title, rest] = m;
 	const ch = CHAPTERS[Number(n)];
 	if (!ch) continue;
-	const body = promote(clean(rest));
+	const body = relink(promote(clean(rest)));
 	const firstPara = body.split('\n').find((l) => l.trim() && !l.startsWith('#') && !l.startsWith('|'));
 	await emit(`en/${ch.dir}/${ch.file}.md`, {
 		title,
@@ -130,12 +137,12 @@ const autocalTitle = autocal.match(/^# (.+)$/m)?.[1] ?? 'Auto-calibration';
 const autocalBody = clean(autocal.replace(/^# .*\n/, ''));
 await emit('fr/venue/04-auto-calibration.md', {
 	title: autocalTitle,
-	description: 'Calibration automatique des projecteurs motorisés par relevé fiduciel.',
+	description: 'Les ancres mesurent elles-mêmes leurs positions sur une croix de tags de référence — aucun laser, aucune saisie.',
 	sidebar: { order: 4 },
 }, autocalBody);
 await emit('en/venue/04-auto-calibration.md', {
-	title: 'Fixture auto-calibration',
-	description: 'Point-and-record calibration of moving heads. Currently documented in French.',
+	title: 'Anchor auto-calibration (UWB survey)',
+	description: 'Anchors measure their own positions against a cross of reference tags — no laser, no typing. Currently documented in French.',
 	sidebar: { order: 4 },
 }, `:::note[In French for now]\nThis page is currently available in French only. A translation is welcome — [edit it on GitHub](https://github.com/yokoul/topos/blob/main/docs/auto_calibration.md).\n:::\n\n${autocalBody}`);
 
@@ -158,6 +165,14 @@ await emit('en/reference/02-firmware.md', {
 	description: 'ESP32-S3 anchor firmware: features, flashing, WiFi captive portal.',
 	sidebar: { order: 2 },
 }, clean(fw.replace(/^# .*\n/, '')));
+
+// ── ROADMAP.md ──────────────────────────────────────────────────────────────
+const roadmap = await source('ROADMAP.md');
+await emit('en/roadmap.md', {
+	title: 'Roadmap',
+	description: 'What works, what we are working on, what we will not do.',
+	tableOfContents: { minHeadingLevel: 2, maxHeadingLevel: 2 },
+}, clean(roadmap.replace(/^# .*\n/, '')));
 
 // nettoyage d'éventuels restes d'anciens runs
 await rm(join(OUT, 'en/venue/guide.md'), { force: true });

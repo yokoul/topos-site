@@ -1,7 +1,9 @@
 ---
 import Default from '@astrojs/starlight/components/Footer.astro';
+import { mainNav } from '../nav';
 
-const { lang } = Astro.locals.starlightRoute;
+const { locale, lang, id } = Astro.locals.starlightRoute;
+const nav = mainNav(locale, lang, id);
 const licences = {
 	en: 'Code MIT · Hardware CERN-OHL-P · Docs CC BY-SA',
 	fr: 'Code MIT · Matériel CERN-OHL-P · Docs CC BY-SA',
@@ -11,12 +13,29 @@ const lic = licences[lang as keyof typeof licences] ?? licences.en;
 ---
 
 <Default />
+<nav class="tp-foot-nav md:sl-hidden" aria-label="Main">
+	{nav.map((n) => <a href={n.href}>{n.label}</a>)}
+</nav>
 <div class="tp-foot">
 	<span class="tp-signature"><b>topos.red</b> — Real-time · Environment · Distance</span>
 	<span class="tp-signature">{lic}</span>
 </div>
 
 <style>
+	.tp-foot-nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem 0.75rem;
+		margin-top: 1.5rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--tp-rule-2);
+	}
+	.tp-foot-nav a {
+		font-weight: 700;
+		font-size: 0.9375rem;
+		color: var(--tp-ink-2);
+		text-decoration: none;
+	}
 	.tp-foot {
 		display: flex;
 		justify-content: space-between;

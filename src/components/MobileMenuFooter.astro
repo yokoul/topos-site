@@ -1,0 +1,54 @@
+---
+/** Menu mobile (pages docs) : navigation principale + langue. */
+import LanguageSelect from 'virtual:starlight/components/LanguageSelect';
+import SocialIcons from 'virtual:starlight/components/SocialIcons';
+import { mainNav } from '../nav';
+
+const { locale, lang, id } = Astro.locals.starlightRoute;
+const nav = mainNav(locale, lang, id);
+---
+
+<nav class="tp-mobile-nav" aria-label="Main">
+	{nav.map((n) => <a href={n.href} class:list={{ active: n.active }}>{n.label}</a>)}
+</nav>
+<div class="mobile-preferences sl-flex">
+	<div class="social-icons"><SocialIcons /></div>
+	<LanguageSelect />
+</div>
+
+<style>
+	@layer starlight.core {
+		.tp-mobile-nav {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 0.25rem 0.5rem;
+			padding: 0.75rem 0;
+			border-top: 1px solid var(--sl-color-gray-6);
+		}
+		.tp-mobile-nav a {
+			font-weight: 700;
+			color: var(--tp-ink-2);
+			text-decoration: none;
+			padding: 0.3rem 0.6rem;
+			border-radius: 8px;
+		}
+		.tp-mobile-nav a.active {
+			color: var(--tp-ink);
+			background: var(--tp-panel);
+		}
+		.social-icons {
+			display: flex;
+			margin-inline-end: auto;
+			gap: 1rem;
+			align-items: center;
+			padding-block: 1rem;
+		}
+		.mobile-preferences {
+			justify-content: space-between;
+			flex-wrap: wrap;
+			border-top: 1px solid var(--sl-color-gray-6);
+			column-gap: 1rem;
+			padding: 0.5rem 0;
+		}
+	}
+</style>

@@ -13,6 +13,7 @@
     "predev": "node scripts/sync-docs.mjs"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
     "@astrojs/sitemap": "^3.7.3",
     "@astrojs/starlight": "^0.41.7",
     "@fontsource-variable/bricolage-grotesque": "^5.3.0",

@@ -1,0 +1,76 @@
+---
+/**
+ * Liste des billets du journal pour la langue courante, du plus récent au plus ancien.
+ * Les billets vivent dans src/content/docs/<locale>/journal/*.md avec `date` en frontmatter.
+ */
+import { getCollection } from 'astro:content';
+
+const { locale = 'en', lang } = Astro.locals.starlightRoute;
+const posts = (await getCollection('docs', (e) => e.id.startsWith(`${locale}/journal/`) && e.data.date))
+	.sort((a, b) => (b.data.date as Date).getTime() - (a.data.date as Date).getTime());
+const fmt = new Intl.DateTimeFormat(lang, { year: 'numeric', month: 'long', day: 'numeric' });
+const rssLabel = { fr: 'Flux RSS', 'zh-CN': 'RSS 订阅' }[lang] ?? 'RSS feed';
+---
+
+<ol class="tp-journal">
+	{posts.map((p) => (
+		<li>
+			<time datetime={(p.data.date as Date).toISOString()}>{fmt.format(p.data.date as Date)}</time>
+			<a href={`/${p.id}/`}>{p.data.title}</a>
+			{p.data.description && <p>{p.data.description}</p>}
+		</li>
+	))}
+</ol>
+<p class="tp-rss"><a href={`/${locale}/journal.xml`}>{rssLabel}</a></p>
+
+<style>
+	.tp-journal {
+		list-style: none;
+		margin: 1rem 0 0;
+		padding: 0;
+		border-top: 1px solid var(--tp-rule);
+	}
+	.tp-journal li {
+		display: grid;
+		grid-template-columns: 9rem 1fr;
+		gap: 0.25rem 1.25rem;
+		padding: 1rem 0;
+		border-bottom: 1px solid var(--tp-rule);
+		margin: 0;
+	}
+	.tp-journal time {
+		font-size: 0.875rem;
+		color: var(--tp-ink-3);
+		font-variant-numeric: tabular-nums;
+		padding-top: 0.15rem;
+	}
+	.tp-journal a {
+		font-family: var(--tp-font-display);
+		font-weight: 800;
+		font-size: 1.2rem;
+		letter-spacing: -0.02em;
+		color: var(--tp-ink);
+		text-decoration: none;
+	}
+	.tp-journal a:hover {
+		color: var(--tp-red);
+	}
+	.tp-journal p {
+		grid-column: 2;
+		margin: 0;
+		color: var(--tp-ink-2);
+		font-size: 0.9375rem;
+	}
+	.tp-rss {
+		margin-top: 1rem;
+		font-size: 0.875rem;
+	}
+	@media (max-width: 40rem) {
+		.tp-journal li {
+			grid-template-columns: 1fr;
+		}
+		.tp-journal p {
+			grid-column: 1;
+		}
+	}
+</style>
