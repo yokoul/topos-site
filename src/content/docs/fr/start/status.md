@@ -5,7 +5,7 @@ sidebar:
   order: 0
 ---
 
-topos est un service de tracking spatial UWB pour le spectacle vivant, conçu par un régisseur technique du [Douze Dix-Huit](https://douzedixhuit.ch) et utilisé là-bas en production. C'est un **logiciel en beta qui tourne sur de vrais spectacles**, en développement actif.
+topos est un service de tracking spatial UWB pour le spectacle vivant, conçu par un régisseur technique du [Douze Dix-Huit](https://tech.ledouzedixhuit.ch/) et utilisé là-bas en production. C'est un **logiciel en beta qui tourne sur de vrais spectacles**, en développement actif.
 
 Ce site est en construction. Ce qui est déjà là, et ce qui arrive :
 

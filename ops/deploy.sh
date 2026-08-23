@@ -26,8 +26,14 @@ log "déploiement ${local_rev:0:7} → ${remote_rev:0:7}"
 git pull -q --ff-only origin main || { log "git pull échoué"; exit 1; }
 npm ci --no-audit --no-fund --silent || { log "npm ci échoué"; exit 1; }
 
+# import des docs depuis le dépôt topos (= hook prebuild, qu'on n'a pas ici car
+# on appelle astro directement pour choisir le dossier de sortie)
+node scripts/sync-docs.mjs >/tmp/topos-site-build.log 2>&1 || {
+	log "import des docs échoué — voir /tmp/topos-site-build.log"
+	exit 1
+}
 rm -rf dist.next
-npx astro build --outDir dist.next >/tmp/topos-site-build.log 2>&1 || {
+npx astro build --outDir dist.next >>/tmp/topos-site-build.log 2>&1 || {
 	log "build échoué — voir /tmp/topos-site-build.log"
 	tail -20 /tmp/topos-site-build.log
 	exit 1

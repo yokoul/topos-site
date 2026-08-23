@@ -5,7 +5,7 @@ sidebar:
   order: 0
 ---
 
-topos is a UWB spatial tracking service for live performance, built by a technical stage manager at [Douze Dix-Huit](https://douzedixhuit.ch) and used there in production. It is **beta software running on real shows**, under active development.
+topos is a UWB spatial tracking service for live performance, built by a technical stage manager at [Douze Dix-Huit](https://tech.ledouzedixhuit.ch/) and used there in production. It is **beta software running on real shows**, under active development.
 
 This site is being built. What is already here, and what is coming:
 
