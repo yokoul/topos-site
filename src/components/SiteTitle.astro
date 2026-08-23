@@ -1,0 +1,26 @@
+---
+/**
+ * Logotype « topos. » — le point rouge est à la fois le point tracké et le « . » de topos.red.
+ * Signature commune de la famille .red.
+ */
+const { locale } = Astro.locals.starlightRoute;
+const href = locale ? `/${locale}/` : '/';
+---
+
+<a {href} class="tp-brand" aria-label="topos — home">topos<i>.</i></a>
+
+<style>
+	.tp-brand {
+		font-family: var(--tp-font-display);
+		font-weight: 800;
+		font-size: 1.4rem;
+		letter-spacing: -0.03em;
+		color: var(--tp-ink);
+		text-decoration: none;
+		line-height: 1;
+	}
+	.tp-brand i {
+		font-style: normal;
+		color: var(--tp-red);
+	}
+</style>

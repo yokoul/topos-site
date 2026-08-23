@@ -1,0 +1,257 @@
+/*
+ * topos.red — thème « Plan de scène, édition lisible »
+ * Tokens validés le 23 août 2026. Site clair uniquement.
+ */
+
+@import '@fontsource/atkinson-hyperlegible/400.css';
+@import '@fontsource/atkinson-hyperlegible/400-italic.css';
+@import '@fontsource/atkinson-hyperlegible/700.css';
+@import '@fontsource-variable/bricolage-grotesque/opsz.css';
+
+:root {
+	/* ── tokens topos ── */
+	--tp-paper: #f6f7f4;
+	--tp-paper-2: #ffffff;
+	--tp-panel: #ebeee9;
+	--tp-grid: rgba(27, 42, 47, 0.085);
+	--tp-ink: #1b2a2f;
+	--tp-ink-2: #4f5e63;
+	--tp-ink-3: #8a969a;
+	--tp-red: #e1332b;
+	--tp-red-soft: rgba(225, 51, 43, 0.1);
+	--tp-rule: rgba(27, 42, 47, 0.16);
+	--tp-rule-2: rgba(27, 42, 47, 0.08);
+	--tp-radius: 10px;
+	--tp-radius-lg: 14px;
+
+	--tp-font-display: 'Bricolage Grotesque Variable', 'Bricolage Grotesque', system-ui, sans-serif;
+	--tp-font-body: 'Atkinson Hyperlegible', system-ui, sans-serif;
+
+	/* ── mapping Starlight ── */
+	--sl-font: var(--tp-font-body);
+	--sl-line-height: 1.65;
+	--sl-content-width: 46rem;
+	--sl-text-h1: 2.25rem;
+	--sl-text-h2: 1.5rem;
+	--sl-text-h3: 1.2rem;
+}
+
+/* Starlight définit le thème clair sous [data-theme='light'] ; on force ce thème (ThemeProvider)
+   et on y projette nos tokens. */
+:root[data-theme='light'],
+[data-theme='light'] ::backdrop {
+	--sl-color-white: var(--tp-ink);
+	--sl-color-gray-1: var(--tp-ink);
+	--sl-color-gray-2: var(--tp-ink-2);
+	--sl-color-gray-3: var(--tp-ink-2);
+	--sl-color-gray-4: var(--tp-ink-3);
+	--sl-color-gray-5: #cfd5d2;
+	--sl-color-gray-6: var(--tp-panel);
+	--sl-color-gray-7: var(--tp-paper);
+	--sl-color-black: var(--tp-paper-2);
+
+	--sl-color-accent-high: #9b1f19;
+	--sl-color-accent: var(--tp-red);
+	--sl-color-accent-low: #fbe3e1;
+
+	--sl-color-text: var(--tp-ink);
+	--sl-color-text-accent: var(--tp-red);
+	--sl-color-text-invert: var(--tp-paper-2);
+	--sl-color-bg: var(--tp-paper);
+	--sl-color-bg-nav: var(--tp-paper-2);
+	--sl-color-bg-sidebar: var(--tp-paper-2);
+	--sl-color-bg-inline-code: var(--tp-panel);
+	--sl-color-bg-accent: var(--tp-red);
+	--sl-color-hairline-light: var(--tp-rule-2);
+	--sl-color-hairline: var(--tp-rule);
+	--sl-color-hairline-shade: var(--tp-rule);
+
+	--sl-shadow-sm: 0 1px 2px rgba(27, 42, 47, 0.06);
+	--sl-shadow-md: 0 6px 18px -8px rgba(27, 42, 47, 0.18);
+	--sl-shadow-lg: 0 20px 50px -30px rgba(27, 42, 47, 0.35);
+}
+
+/* ── typographie ── */
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4,
+h1[data-page-title],
+.hero h1 {
+	font-family: var(--tp-font-display);
+	font-weight: 800;
+	letter-spacing: -0.03em;
+	line-height: 1.08;
+	text-wrap: balance;
+	font-variation-settings: 'opsz' 96;
+}
+.sl-markdown-content h2 {
+	margin-top: 2.2em;
+}
+.sl-markdown-content {
+	font-size: 1rem;
+}
+.sl-markdown-content table td:last-child,
+.sl-markdown-content table th:last-child {
+	font-variant-numeric: tabular-nums;
+}
+.sl-markdown-content li::marker {
+	color: var(--tp-red);
+	font-weight: 700;
+}
+
+/* ── composants arrondis ── */
+.sl-markdown-content table,
+.sl-markdown-content pre,
+.sl-markdown-content .expressive-code .frame,
+.sl-markdown-content .starlight-aside,
+.card,
+.sl-link-card,
+.sl-link-button {
+	border-radius: var(--tp-radius);
+}
+.sl-markdown-content code:not(pre code) {
+	border-radius: 6px;
+	padding: 0.1em 0.45em;
+}
+.sl-markdown-content .starlight-aside {
+	border-inline-start-width: 3px;
+}
+
+/* sidebar : item actif en pastille, pas en filet */
+.sidebar-content a[aria-current='page'] {
+	background: var(--tp-panel);
+	color: var(--tp-ink);
+	font-weight: 700;
+	border-radius: 8px;
+}
+.sidebar-content a {
+	border-radius: 8px;
+}
+
+/* boutons */
+.sl-link-button.primary {
+	background: var(--tp-ink);
+	border-color: var(--tp-ink);
+	color: var(--tp-paper);
+	font-weight: 700;
+}
+.sl-link-button.secondary {
+	border: 1.5px solid var(--tp-rule);
+	background: rgba(255, 255, 255, 0.6);
+	color: var(--tp-ink);
+	font-weight: 700;
+}
+.sl-link-button.minimal {
+	color: var(--tp-ink-2);
+}
+
+/* ── splash / hero : bandeau quadrillé ── */
+[data-has-hero] .main-pane {
+	background-image: linear-gradient(var(--tp-grid) 1px, transparent 1px),
+		linear-gradient(90deg, var(--tp-grid) 1px, transparent 1px);
+	background-size: 24px 24px;
+}
+.hero {
+	padding-block: 2rem 1rem;
+}
+.hero h1 {
+	font-size: clamp(2.25rem, 5vw, 3.5rem);
+	color: var(--tp-ink);
+}
+.hero h1 em {
+	font-style: normal;
+	color: var(--tp-red);
+}
+.hero .tagline {
+	color: var(--tp-ink-2);
+	font-size: 1.125rem;
+	max-width: 44ch;
+}
+.hero .hero-html {
+	background: rgba(255, 255, 255, 0.72);
+	border: 1px solid var(--tp-rule);
+	border-radius: var(--tp-radius-lg);
+	padding: 1rem;
+}
+.hero .hero-html svg {
+	width: 100%;
+	height: auto;
+	display: block;
+}
+
+/* pastille d'état du projet */
+.tp-state {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 0.5rem;
+	padding: 0.35rem 0.9rem 0.35rem 0.75rem;
+	background: var(--tp-paper-2);
+	border: 1px solid var(--tp-rule);
+	border-radius: 999px;
+	font-size: 0.875rem;
+	color: var(--tp-ink-2);
+}
+.tp-state::before {
+	content: '';
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: var(--tp-red);
+}
+
+/* bandeau de chiffres */
+.tp-strip {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	border: 1px solid var(--tp-rule);
+	border-radius: var(--tp-radius-lg);
+	background: var(--tp-paper-2);
+	overflow: hidden;
+	margin-top: 2rem;
+}
+.tp-strip > div {
+	padding: 1.25rem 1.5rem;
+	border-right: 1px solid var(--tp-rule);
+}
+.tp-strip > div:last-child {
+	border-right: none;
+}
+.tp-strip b {
+	display: block;
+	font-family: var(--tp-font-display);
+	font-weight: 800;
+	font-size: 1.75rem;
+	letter-spacing: -0.03em;
+	line-height: 1;
+	margin-bottom: 0.35rem;
+	font-variant-numeric: tabular-nums;
+}
+.tp-strip span {
+	font-size: 0.9375rem;
+	color: var(--tp-ink-2);
+}
+@media (max-width: 640px) {
+	.tp-strip {
+		grid-template-columns: 1fr;
+	}
+	.tp-strip > div {
+		border-right: none;
+		border-bottom: 1px solid var(--tp-rule);
+	}
+	.tp-strip > div:last-child {
+		border-bottom: none;
+	}
+}
+
+/* signature .red — révélée en pied de page seulement */
+.tp-signature {
+	font-size: 0.8125rem;
+	color: var(--tp-ink-3);
+	letter-spacing: 0.04em;
+}
+.tp-signature b {
+	color: var(--tp-ink-2);
+	font-weight: 400;
+}

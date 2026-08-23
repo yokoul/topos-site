@@ -1,0 +1,10 @@
+---
+/**
+ * Surcharge du ThemeProvider Starlight : topos.red est un site clair uniquement.
+ * Aucun script, aucune lecture de localStorage — le thème est fixé côté HTML.
+ */
+---
+
+<script is:inline>
+	document.documentElement.dataset.theme = 'light';
+</script>

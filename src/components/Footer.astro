@@ -1,0 +1,29 @@
+---
+import Default from '@astrojs/starlight/components/Footer.astro';
+
+const { lang } = Astro.locals.starlightRoute;
+const licences = {
+	en: 'Code MIT · Hardware CERN-OHL-P · Docs CC BY-SA',
+	fr: 'Code MIT · Matériel CERN-OHL-P · Docs CC BY-SA',
+	'zh-CN': '代码 MIT · 硬件 CERN-OHL-P · 文档 CC BY-SA',
+};
+const lic = licences[lang as keyof typeof licences] ?? licences.en;
+---
+
+<Default />
+<div class="tp-foot">
+	<span class="tp-signature"><b>topos.red</b> — Real-time · Environment · Distance</span>
+	<span class="tp-signature">{lic}</span>
+</div>
+
+<style>
+	.tp-foot {
+		display: flex;
+		justify-content: space-between;
+		flex-wrap: wrap;
+		gap: 0.75rem;
+		margin-top: 1.5rem;
+		padding-top: 1rem;
+		border-top: 1px solid var(--tp-rule-2);
+	}
+</style>
