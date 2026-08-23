@@ -7,14 +7,13 @@ sidebar:
 
 topos is a UWB spatial tracking service for live performance, built by a technical stage manager at [Douze Dix-Huit](https://douzedixhuit.ch) and used there in production. It is **beta software running on real shows**, under active development.
 
-This site is being built. Here is what it will hold, in order of arrival:
+This site is being built. What is already here, and what is coming:
 
-1. **Docs** — the complete guide, from buying the hardware to calibrating in the venue. Imported straight from the [topos repository](https://github.com/yokoul/topos/tree/main/docs), so it never drifts from the code.
-2. **Hardware** — the shopping list, the printable cases (STL and OpenSCAD sources), the anchor firmware.
-3. **Tutorials** — short videos: tracking in five minutes, laser-meter calibration.
-4. **Journal and community** — a devlog, GitHub Discussions, a public roadmap.
+- **Docs** — the complete guide, from buying the hardware to calibrating in the venue, imported straight from the [topos repository](https://github.com/yokoul/topos/tree/main/docs) so it never drifts from the code. English for now; French and Chinese translations to come.
+- **[Hardware](/en/hardware/)** — shopping list, printable cases (STL and OpenSCAD sources), anchor firmware.
+- *Coming* — tutorials (short videos: tracking in five minutes, laser-meter calibration), workshop photos, a devlog, GitHub Discussions, a public roadmap.
 
-Until then, everything lives in the repository: code, firmware, guide, and an `--simulate` mode that runs the whole chain without any hardware.
+Everything else lives in the repository, including an `--simulate` mode that runs the whole chain without any hardware:
 
 ```bash
 git clone https://github.com/yokoul/topos.git && cd topos

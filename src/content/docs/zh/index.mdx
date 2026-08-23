@@ -2,15 +2,15 @@
 title: 实时掌握演员在舞台上的位置，<em>精确到厘米</em>。
 description: 面向现场演出的开源硬件 UWB 定位系统。自行打印并烧录的基站，每位演员一个标签，位置以 PSN、OSC 和 Art-Net 输出。
 template: splash
-state: Beta · 已在 Douze Dix-Huit 剧院投入使用 · 本站建设中
+state: Beta · 已在 Douze Dix-Huit 剧院投入使用 · 持续开发中
 hero:
   tagline: 面向现场演出的开源硬件 UWB 定位系统。自行打印并烧录的基站，每位演员一个标签，位置以 PSN、OSC 和 Art-Net 输出到您的控台。
   actions:
-    - text: 项目状态
-      link: /zh/start/status/
+    - text: 5 分钟上手
+      link: /zh/start/01-hardware/
       variant: primary
-    - text: GitHub 源码
-      link: https://github.com/yokoul/topos
+    - text: 查看硬件
+      link: /zh/hardware/
       variant: secondary
 ---
 
@@ -18,4 +18,33 @@ hero:
   <div><b>~10 cm</b><span>激光测距仪校准后的精度</span></div>
   <div><b>&lt; 5 min</b><span>从通电到第一个移动的点</span></div>
   <div><b>&lt; 50 €</b><span>每个基站 — 现成模块，3D 打印外壳</span></div>
+</div>
+
+<div class="tp-section">
+  <div>
+    <span class="tp-label">上手</span>
+    <h2>四个步骤，一台激光测距仪，一个下午。</h2>
+    <p>所需的一切都在本站：打印文件、固件、指南。没有专有技术，没有线上买不到的东西。</p>
+    <a class="sl-link-button primary" href="/zh/start/01-hardware/">阅读指南</a>
+  </div>
+  <ol class="tp-steps">
+    <li><div><b>打印并组装三个基站</b><span>提供 STL，MaUWB ESP32-S3 模块，底座 + 卡扣盖。</span></div><small>打印</small></li>
+    <li><div><b>烧录并连接 WiFi</b><span>首次通电时进入配网页面。换场馆无需重新烧录。</span></div><small>10 分钟</small></li>
+    <li><div><b>用激光测距仪测量，以毫米输入</b><span>Topos 通过三边测量推算基站位置。</span></div><small>15 分钟</small></li>
+    <li><div><b>连接控台</b><span>PSN 到 Soma 或 Augment3d，OSC 到 QLab，Art-Net 到电脑灯。</span></div><small>5 分钟</small></li>
+  </ol>
+</div>
+
+<div class="tp-section">
+  <div>
+    <span class="tp-label">开源</span>
+    <h2>一个工作坊，而非一件产品。</h2>
+    <p>Topos 诞生于舞台，由一位舞台技术总监为舞台技术人员打造。代码、固件、外壳和文档均以自由许可证发布 — 使用、修改、分享。</p>
+    <a class="sl-link-button secondary" href="/zh/project/">关于项目</a>
+  </div>
+  <div class="tp-cards">
+    <div class="tp-card"><span class="tp-label">代码</span><h3>MIT</h3><p>Python 3.11，asyncio，无重型框架。原生 JS 仪表盘。</p></div>
+    <div class="tp-card"><span class="tp-label">硬件</span><h3>CERN-OHL-P</h3><p>参数化 OpenSCAD 外壳，ESP32-S3 的 Arduino 固件。</p></div>
+    <div class="tp-card"><span class="tp-label">文档</span><h3>CC BY-SA</h3><p>指南、照片、视频。直接从代码仓库导入，永不与代码脱节。</p></div>
+  </div>
 </div>

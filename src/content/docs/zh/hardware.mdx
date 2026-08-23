@@ -1,0 +1,63 @@
+---
+title: 硬件
+description: 采购清单、可打印外壳（STL + OpenSCAD 源文件）、基站固件。
+template: splash
+---
+
+<div class="tp-splash">
+
+## 三个基站，一个标签，一台打印机。
+
+所有部件均可在 [Makerfabs](https://www.makerfabs.com) 直接购买。外壳是参数化的 OpenSCAD：模块变了，外壳随之调整。
+
+<div class="tp-bom">
+
+| 部件 | 作用 | 数量 | 来源 |
+|---|---|---|---|
+| [MaUWB ESP32S3](https://www.makerfabs.com/mauwb-esp32s3-uwb-module.html)（DW3000 + PA） | 基站（固定在舞台周围） | 最少 3 个，最多 8 个 | Makerfabs |
+| [MaUWB Direct](https://www.makerfabs.com/mauwb-direct.html) | 标签（演员佩戴），或额外基站 | 每位演员 1 个 | Makerfabs |
+| USB-C 线 | 需支持数据传输，不能是仅充电线 | 每个基站 1 根 | — |
+| USB 电源，5 V 1 A 以上 | 基站供电 | 视布线而定 | — |
+| PLA 或 PETG 耗材 | 外壳 | 每个外壳几十克 | — |
+| 激光测距仪 | 场地校准，毫米精度 | 1 | 您应该已经有了 |
+
+</div>
+
+最小套件 — 三个基站呈三角形布置（切勿排成一线），安装高度 2–3 m，一个标签 — 足以在剧场舞台上做 2D 定位。增加基站可覆盖更大范围或升级到 3D。详见指南：[所需硬件](/zh/start/01-hardware/)。
+
+## 可打印外壳
+
+两件式：底座 + 卡扣盖，FDM 打印，**无需支撑**。为 MaUWB ESP32-S3 模块设计（PCB 73 × 33 × 12 mm）。OpenSCAD 源文件和 STL 在代码仓库中，采用 CERN-OHL-P v2 许可。
+
+<div class="tp-cards">
+  <div class="tp-card">
+    <span class="tp-label">基站</span>
+    <h3>基站外壳</h3>
+    <p>正面开有 USB-C 和 OLED 窗口，UWB 天线区域留空。壁厚 2 mm，底面与盖板 1.6 mm。</p>
+    <dl><dt>模块</dt><dd>MaUWB ESP32-S3</dd><dt>材料</dt><dd>PLA 或 PETG</dd><dt>支撑</dt><dd>无</dd></dl>
+    <div class="tp-dl"><a class="primary" href="https://github.com/yokoul/topos/tree/main/hardware/casing">STL + SCAD</a><a href="https://github.com/yokoul/topos/blob/main/hardware/casing/README.md">重新生成</a></div>
+  </div>
+  <div class="tp-card dim">
+    <span class="tp-label">标签</span>
+    <h3>标签外壳</h3>
+    <p>演员佩戴。设计中。</p>
+    <dl><dt>模块</dt><dd>MaUWB Direct</dd><dt>状态</dt><dd>即将推出</dd></dl>
+  </div>
+  <div class="tp-card dim">
+    <span class="tp-label">照片</span>
+    <h3>打印成品</h3>
+    <p>工作坊照片和经验证的打印参数将在测试后发布于此。</p>
+  </div>
+</div>
+
+## 基站固件
+
+ESP32-S3 的 Arduino 固件：UWB 测距、配网页面连接 WiFi（换场馆无需重新烧录）、UDP 推流到 Topos、OLED 显示基站编号和 IP。每个基站烧录前只需改一个参数：它的编号。
+
+<a class="sl-link-button secondary" href="/zh/reference/02-firmware/">固件指南</a>
+
+## Topos 不要求您做的事
+
+不需要制作电路板，不需要焊接元件。模块到手即可烧录；标签通过 Topos 仪表盘配置，无需 Arduino IDE。有一台 3D 打印机打印外壳，就够了。
+
+</div>

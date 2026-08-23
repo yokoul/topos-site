@@ -2,15 +2,15 @@
 title: Savoir où sont les gens sur le plateau, <em>au centimètre</em>.
 description: Tracking UWB open hardware pour le spectacle vivant. Des ancres à imprimer et flasher, un tag par performer, les positions sortent en PSN, OSC et Art-Net.
 template: splash
-state: Beta · en production au Douze Dix-Huit · ce site est en construction
+state: Beta · en production au Douze Dix-Huit · développement actif
 hero:
   tagline: Tracking UWB open hardware pour le spectacle vivant. Des ancres à imprimer et flasher, un tag par performer, et les positions sortent en PSN, OSC et Art-Net vers votre console.
   actions:
-    - text: État du projet
-      link: /fr/start/status/
+    - text: Démarrer en 5 minutes
+      link: /fr/start/01-hardware/
       variant: primary
-    - text: Le code sur GitHub
-      link: https://github.com/yokoul/topos
+    - text: Voir le matériel
+      link: /fr/hardware/
       variant: secondary
 ---
 
@@ -18,4 +18,33 @@ hero:
   <div><b>~10 cm</b><span>de précision après calibration au télémètre</span></div>
   <div><b>&lt; 5 min</b><span>du branchement au premier point qui bouge</span></div>
   <div><b>&lt; 50 €</b><span>par ancre — module grand public, boîtier imprimé</span></div>
+</div>
+
+<div class="tp-section">
+  <div>
+    <span class="tp-label">Démarrage</span>
+    <h2>Quatre étapes, un télémètre, une après-midi.</h2>
+    <p>Tout ce qu'il faut est sur ce site : les fichiers à imprimer, le firmware, le guide. Rien de propriétaire, rien à acheter ailleurs qu'en ligne.</p>
+    <a class="sl-link-button primary" href="/fr/start/01-hardware/">Lire le guide</a>
+  </div>
+  <ol class="tp-steps">
+    <li><div><b>Imprimer et assembler trois ancres</b><span>STL fournis, module MaUWB ESP32-S3, base + couvercle clipsable.</span></div><small>impression</small></li>
+    <li><div><b>Flasher et connecter au WiFi</b><span>Portail captif à la première mise sous tension. Pas de reflash par salle.</span></div><small>10 min</small></li>
+    <li><div><b>Mesurer au télémètre, saisir en millimètres</b><span>Topos déduit les positions des ancres par trilatération.</span></div><small>15 min</small></li>
+    <li><div><b>Brancher la console</b><span>PSN vers Soma ou Augment3d, OSC vers QLab, Art-Net vers les projecteurs.</span></div><small>5 min</small></li>
+  </ol>
+</div>
+
+<div class="tp-section">
+  <div>
+    <span class="tp-label">Ouvert</span>
+    <h2>Un atelier, pas un produit.</h2>
+    <p>Topos est né sur un plateau, fait par un régisseur pour des régisseurs. Le code, le firmware, les boîtiers et la documentation sont publiés sous licences libres — utilisez, modifiez, partagez.</p>
+    <a class="sl-link-button secondary" href="/fr/project/">Le projet</a>
+  </div>
+  <div class="tp-cards">
+    <div class="tp-card"><span class="tp-label">Code</span><h3>MIT</h3><p>Python 3.11, asyncio, zéro framework lourd. Dashboard en vanilla JS.</p></div>
+    <div class="tp-card"><span class="tp-label">Matériel</span><h3>CERN-OHL-P</h3><p>Boîtiers OpenSCAD paramétriques, firmware Arduino pour ESP32-S3.</p></div>
+    <div class="tp-card"><span class="tp-label">Docs</span><h3>CC BY-SA</h3><p>Guide, photos, vidéos. Importés depuis le dépôt, jamais en décalage avec le code.</p></div>
+  </div>
 </div>

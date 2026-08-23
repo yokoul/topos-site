@@ -1,0 +1,63 @@
+---
+title: Hardware
+description: Shopping list, printable cases (STL + OpenSCAD sources), anchor firmware.
+template: splash
+---
+
+<div class="tp-splash">
+
+## Three anchors, one tag, a printer.
+
+Everything is sold off the shelf by [Makerfabs](https://www.makerfabs.com). The cases are parametric OpenSCAD: if your module changes, the case follows.
+
+<div class="tp-bom">
+
+| Component | Role | Quantity | Source |
+|---|---|---|---|
+| [MaUWB ESP32S3](https://www.makerfabs.com/mauwb-esp32s3-uwb-module.html) (DW3000 + PA) | Anchor (fixed, around the stage) | 3 minimum, 8 maximum | Makerfabs |
+| [MaUWB Direct](https://www.makerfabs.com/mauwb-direct.html) | Tag (worn by the performer), or extra anchor | 1 per performer | Makerfabs |
+| USB-C cable | Data, not charge-only | 1 per anchor | — |
+| USB power supply, 5 V 1 A minimum | Anchors | depends on cabling | — |
+| PLA or PETG filament | Cases | a few tens of grams per case | — |
+| Laser distance meter | Venue calibration, millimetre precision | 1 | you already own one |
+
+</div>
+
+A minimal kit — three anchors in a triangle, never in a line, mounted at 2–3 m, one tag — is enough for 2D tracking on a theatre stage. Add anchors to cover more or go 3D. Details in the guide: [Required hardware](/en/start/01-hardware/).
+
+## Printable cases
+
+Two parts, base and snap-on lid, FDM **with no supports**. Designed for the MaUWB ESP32-S3 module (PCB 73 × 33 × 12 mm). OpenSCAD sources and STL in the repository, under CERN-OHL-P v2.
+
+<div class="tp-cards">
+  <div class="tp-card">
+    <span class="tp-label">Anchor</span>
+    <h3>Anchor case</h3>
+    <p>USB-C and OLED on the front face, UWB antenna kept clear. 2 mm walls, 1.6 mm floor and lid.</p>
+    <dl><dt>Module</dt><dd>MaUWB ESP32-S3</dd><dt>Material</dt><dd>PLA or PETG</dd><dt>Supports</dt><dd>none</dd></dl>
+    <div class="tp-dl"><a class="primary" href="https://github.com/yokoul/topos/tree/main/hardware/casing">STL + SCAD</a><a href="https://github.com/yokoul/topos/blob/main/hardware/casing/README.md">Regenerate</a></div>
+  </div>
+  <div class="tp-card dim">
+    <span class="tp-label">Tag</span>
+    <h3>Tag case</h3>
+    <p>Worn by the performer. In design.</p>
+    <dl><dt>Module</dt><dd>MaUWB Direct</dd><dt>Status</dt><dd>coming</dd></dl>
+  </div>
+  <div class="tp-card dim">
+    <span class="tp-label">Photos</span>
+    <h3>Printed cases</h3>
+    <p>Workshop photos and validated print settings land here after testing.</p>
+  </div>
+</div>
+
+## Anchor firmware
+
+Arduino for ESP32-S3: UWB ranging, WiFi via captive portal (no reflash per venue), UDP streaming to Topos, OLED showing the anchor ID and IP. One parameter to change per anchor before flashing: its number.
+
+<a class="sl-link-button secondary" href="/en/reference/02-firmware/">Firmware guide</a>
+
+## What Topos does not ask of you
+
+No board to fabricate, no component to solder. Modules arrive ready to flash; tags are configured from the Topos dashboard, no Arduino IDE. A 3D printer for the cases, and that's it.
+
+</div>

@@ -1,0 +1,51 @@
+---
+title: Le projet
+description: Pourquoi Topos existe, ce qu'il promet, ce qu'il n'est pas, et la famille .red dont il fait partie.
+template: splash
+---
+
+<div class="tp-splash">
+
+## Né sur un plateau
+
+Topos a été conçu au [Douze Dix-Huit](https://douzedixhuit.ch), par son régisseur technique, pour un besoin précis : savoir en temps réel où sont les performers, afin que la lumière et le son puissent les suivre. Les solutions existantes sont fermées, chères, ou pensées pour des salles qui n'ont rien à voir avec un théâtre de quartier.
+
+Alors on a construit la nôtre, avec des modules UWB grand public, des boîtiers imprimés et du Python. Et comme elle marche, on la partage.
+
+## Trois promesses
+
+Elles sont tenues par le code, pas par la brochure.
+
+<div class="tp-cards">
+  <div class="tp-card"><span class="tp-label">Protocoles</span><h3>Ouverts, uniquement.</h3><p>PSN v2.03, OSC, ADM-OSC, Art-Net, WebSocket. Rien de propriétaire. Votre console, votre logiciel son, votre moteur vidéo parlent déjà ces langues.</p></div>
+  <div class="tp-card"><span class="tp-label">Opérateur</span><h3>Moins de cinq minutes.</h3><p>Du branchement au premier point qui bouge. Toute fonctionnalité qui complique le setup se justifie ou dégage.</p></div>
+  <div class="tp-card"><span class="tp-label">Matériel</span><h3>Grand public.</h3><p>Des modules Makerfabs en vente libre, des boîtiers à imprimer, pas de carte sur mesure. Une ancre coûte moins de 50 €.</p></div>
+</div>
+
+## Un traducteur spatial
+
+Topos n'est ni un moteur de rendu ni un contrôleur. Il mesure des distances radio entre des tags et des ancres, en déduit des positions, et les redistribue dans les protocoles que le spectacle utilise déjà. Ce que vous en faites — suivre un performer avec un projecteur, spatialiser une voix, déclencher une cue — c'est l'affaire de vos outils.
+
+C'est ce qui le rend petit, et c'est ce qui le rend fiable.
+
+## La famille .red
+
+Topos est l'un de trois outils qui partagent une même idée : relier le **réel**, l'**espace** dans lequel il existe, et sa représentation en **données**.
+
+<div class="tp-chain current">
+  <div><b>topos<i>.</i></b><span>observe — où sont les gens, en temps réel</span></div>
+  <div><b>skena<i>.</i></b><span>représente — documenter et comprendre un espace</span></div>
+  <div><b>soma<i>.</i></b><span>agit — une lumière qui réagit et évolue</span></div>
+</div>
+
+Topos observe, Skena représente, Soma agit. Chacun est utilisable seul ; ensemble, ils forment une chaîne. Soma est un client de Topos, jamais l'inverse.
+
+## Où on en est
+
+Topos est un logiciel en **beta**, utilisé en production sur de vrais spectacles, en développement actif. Le tracking 2D et 3D, les sorties PSN, OSC, ADM-OSC et Art-Net, la calibration terrain, le suivi de projecteurs motorisés et les cues fonctionnent. Ce qui reste à faire est listé dans le dépôt ; une roadmap publique arrive sur ce site.
+
+Le code est sous [MIT](https://github.com/yokoul/topos/blob/main/LICENSE), le matériel sous [CERN-OHL-P v2](https://github.com/yokoul/topos/blob/main/LICENSE-HARDWARE), la documentation et les médias sous [CC BY-SA 4.0](https://github.com/yokoul/topos/blob/main/LICENSE-DOCS).
+
+<p class="tp-signature"><b>topos.red</b> — Real-time · Environment · Distance. <b>RED</b> — Reality · Environment · Data.</p>
+
+</div>

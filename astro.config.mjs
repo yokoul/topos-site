@@ -29,6 +29,7 @@ export default defineConfig({
 				ThemeSelect: './src/components/ThemeSelect.astro',
 				SiteTitle: './src/components/SiteTitle.astro',
 				Hero: './src/components/Hero.astro',
+				Header: './src/components/Header.astro',
 				Footer: './src/components/Footer.astro',
 			},
 			head: NOINDEX
@@ -40,7 +41,16 @@ export default defineConfig({
 					translations: { fr: 'Commencer', 'zh-CN': '开始' },
 					items: [{ autogenerate: { directory: 'start' } }],
 				},
-				// Phase 1 : « En salle » (venue/) et « Référence » (reference/), alimentés par scripts/sync-docs.mjs
+				{
+					label: 'In the venue',
+					translations: { fr: 'En salle', 'zh-CN': '在场馆' },
+					items: [{ autogenerate: { directory: 'venue' } }],
+				},
+				{
+					label: 'Reference',
+					translations: { fr: 'Référence', 'zh-CN': '参考' },
+					items: [{ autogenerate: { directory: 'reference' } }],
+				},
 			],
 		}),
 		sitemap(),

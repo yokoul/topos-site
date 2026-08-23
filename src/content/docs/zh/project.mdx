@@ -1,0 +1,51 @@
+---
+title: 关于项目
+description: Topos 为何存在，它承诺什么，它不是什么，以及它所属的 .red 家族。
+template: splash
+---
+
+<div class="tp-splash">
+
+## 诞生于舞台
+
+Topos 由 [Douze Dix-Huit](https://douzedixhuit.ch) 剧院的舞台技术总监设计，源于一个明确的需求：实时知道演员在哪里，让灯光和声音能够跟随他们。现有方案要么封闭、要么昂贵，要么是为与社区剧院毫无共同点的场馆设计的。
+
+于是我们用现成的 UWB 模块、3D 打印外壳和 Python 自己做了一套。既然它能用，我们就把它分享出来。
+
+## 三个承诺
+
+由代码兑现，而非宣传册。
+
+<div class="tp-cards">
+  <div class="tp-card"><span class="tp-label">协议</span><h3>只用开放协议。</h3><p>PSN v2.03、OSC、ADM-OSC、Art-Net、WebSocket。没有任何专有协议。您的控台、音频软件、视频引擎早已会说这些语言。</p></div>
+  <div class="tp-card"><span class="tp-label">操作</span><h3>五分钟以内。</h3><p>从通电到第一个移动的点。任何让安装变复杂的功能，要么有充分理由，要么被移除。</p></div>
+  <div class="tp-card"><span class="tp-label">硬件</span><h3>现成可买。</h3><p>人人可买的 Makerfabs 模块，自己打印的外壳，无需定制电路板。一个基站成本低于 50 欧元。</p></div>
+</div>
+
+## 一个空间翻译器
+
+Topos 既不是渲染引擎，也不是控制器。它测量标签与基站之间的无线电距离，推算位置，再以演出已在使用的协议分发出去。您拿这些位置做什么 — 用电脑灯跟随演员、给人声做空间化、触发一个 cue — 是您手中工具的事。
+
+这让它保持小巧，也让它保持可靠。
+
+## .red 家族
+
+Topos 是共享同一理念的三个工具之一：连接**现实**、它所处的**环境**，以及它的**数据**表示。
+
+<div class="tp-chain current">
+  <div><b>topos<i>.</i></b><span>观察 — 人在哪里，实时</span></div>
+  <div><b>skena<i>.</i></b><span>表示 — 记录并理解一个空间</span></div>
+  <div><b>soma<i>.</i></b><span>行动 — 会响应、会演变的灯光</span></div>
+</div>
+
+Topos 观察，Skena 表示，Soma 行动。每个都可以单独使用；合在一起便构成一条链。Soma 是 Topos 的客户端，反之则不然。
+
+## 目前进展
+
+Topos 是 **beta** 软件，已在真实演出中投入使用，持续开发中。2D 与 3D 定位、PSN / OSC / ADM-OSC / Art-Net 输出、场地校准、电脑灯跟踪与 cue 均已可用。待完成事项列于代码仓库；公开路线图即将发布在本站。
+
+代码采用 [MIT](https://github.com/yokoul/topos/blob/main/LICENSE)，硬件采用 [CERN-OHL-P v2](https://github.com/yokoul/topos/blob/main/LICENSE-HARDWARE)，文档与媒体采用 [CC BY-SA 4.0](https://github.com/yokoul/topos/blob/main/LICENSE-DOCS)。
+
+<p class="tp-signature"><b>topos.red</b> — Real-time · Environment · Distance. <b>RED</b> — Reality · Environment · Data.</p>
+
+</div>

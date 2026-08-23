@@ -23,3 +23,8 @@ pnpm-debug.log*
 # build
 dist/
 .astro/
+
+# docs générées par scripts/sync-docs.mjs (source : dépôt topos)
+src/content/docs/*/start/0*-*.md
+src/content/docs/*/venue/
+src/content/docs/*/reference/

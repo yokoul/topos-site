@@ -7,14 +7,13 @@ sidebar:
 
 topos est un service de tracking spatial UWB pour le spectacle vivant, conçu par un régisseur technique du [Douze Dix-Huit](https://douzedixhuit.ch) et utilisé là-bas en production. C'est un **logiciel en beta qui tourne sur de vrais spectacles**, en développement actif.
 
-Ce site est en construction. Voici ce qu'il contiendra, dans l'ordre d'arrivée :
+Ce site est en construction. Ce qui est déjà là, et ce qui arrive :
 
-1. **Docs** — le guide complet, de l'achat du matériel à la calibration en salle. Importé directement depuis le [dépôt topos](https://github.com/yokoul/topos/tree/main/docs), pour qu'il ne dérive jamais du code.
-2. **Matériel** — la liste d'achat, les boîtiers à imprimer (STL et sources OpenSCAD), le firmware des ancres.
-3. **Tutos** — des vidéos courtes : le tracking en cinq minutes, la calibration au télémètre.
-4. **Journal et communauté** — un devlog, les Discussions GitHub, une roadmap publique.
+- **Docs** — le guide complet, de l'achat du matériel à la calibration en salle, importé directement depuis le [dépôt topos](https://github.com/yokoul/topos/tree/main/docs) pour qu'il ne dérive jamais du code. En anglais pour l'instant ; traductions française et chinoise à venir.
+- **[Matériel](/fr/hardware/)** — liste d'achat, boîtiers à imprimer (STL et sources OpenSCAD), firmware des ancres.
+- *À venir* — tutos (vidéos courtes : le tracking en cinq minutes, la calibration au télémètre), photos d'atelier, journal, Discussions GitHub, roadmap publique.
 
-D'ici là, tout vit dans le dépôt : code, firmware, guide, et un mode `--simulate` qui fait tourner toute la chaîne sans matériel.
+Le reste vit dans le dépôt, dont un mode `--simulate` qui fait tourner toute la chaîne sans matériel :
 
 ```bash
 git clone https://github.com/yokoul/topos.git && cd topos

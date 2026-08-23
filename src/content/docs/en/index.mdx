@@ -2,15 +2,15 @@
 title: Know where people are on stage, <em>to the centimetre</em>.
 description: Open hardware UWB tracking for live performance. Anchors you print and flash, one tag per performer, positions out as PSN, OSC and Art-Net.
 template: splash
-state: Beta · running at Douze Dix-Huit · this site is being built
+state: Beta · running at Douze Dix-Huit · active development
 hero:
   tagline: Open hardware UWB tracking for live performance. Anchors you print and flash, one tag per performer, and positions go out as PSN, OSC and Art-Net to your console.
   actions:
-    - text: Project status
-      link: /en/start/status/
+    - text: Start in 5 minutes
+      link: /en/start/01-hardware/
       variant: primary
-    - text: Source on GitHub
-      link: https://github.com/yokoul/topos
+    - text: See the hardware
+      link: /en/hardware/
       variant: secondary
 ---
 
@@ -18,4 +18,33 @@ hero:
   <div><b>~10 cm</b><span>accuracy after laser-meter calibration</span></div>
   <div><b>&lt; 5 min</b><span>from plugging in to the first moving dot</span></div>
   <div><b>&lt; 50 €</b><span>per anchor — off-the-shelf module, printed case</span></div>
+</div>
+
+<div class="tp-section">
+  <div>
+    <span class="tp-label">Getting started</span>
+    <h2>Four steps, a laser meter, one afternoon.</h2>
+    <p>Everything you need is on this site: the files to print, the firmware, the guide. Nothing proprietary, nothing to buy that isn't online.</p>
+    <a class="sl-link-button primary" href="/en/start/01-hardware/">Read the guide</a>
+  </div>
+  <ol class="tp-steps">
+    <li><div><b>Print and assemble three anchors</b><span>STL provided, MaUWB ESP32-S3 module, base + snap-on lid.</span></div><small>printing</small></li>
+    <li><div><b>Flash and join the WiFi</b><span>Captive portal on first power-up. No reflash per venue.</span></div><small>10 min</small></li>
+    <li><div><b>Measure with the laser meter, enter in millimetres</b><span>Topos derives anchor positions by trilateration.</span></div><small>15 min</small></li>
+    <li><div><b>Connect the console</b><span>PSN to Soma or Augment3d, OSC to QLab, Art-Net to moving heads.</span></div><small>5 min</small></li>
+  </ol>
+</div>
+
+<div class="tp-section">
+  <div>
+    <span class="tp-label">Open</span>
+    <h2>A workshop, not a product.</h2>
+    <p>Topos was born on a stage, built by a technical stage manager for stage technicians. Code, firmware, cases and documentation are published under free licences — use, modify, share.</p>
+    <a class="sl-link-button secondary" href="/en/project/">The project</a>
+  </div>
+  <div class="tp-cards">
+    <div class="tp-card"><span class="tp-label">Code</span><h3>MIT</h3><p>Python 3.11, asyncio, no heavy framework. Vanilla JS dashboard.</p></div>
+    <div class="tp-card"><span class="tp-label">Hardware</span><h3>CERN-OHL-P</h3><p>Parametric OpenSCAD cases, Arduino firmware for ESP32-S3.</p></div>
+    <div class="tp-card"><span class="tp-label">Docs</span><h3>CC BY-SA</h3><p>Guide, photos, videos. Imported from the repository, never out of sync with the code.</p></div>
+  </div>
 </div>

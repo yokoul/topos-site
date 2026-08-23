@@ -255,3 +255,185 @@ h1[data-page-title],
 	color: var(--tp-ink-2);
 	font-weight: 400;
 }
+
+/* ── pages splash (accueil, projet, matériel) ── */
+[data-has-hero] .sl-markdown-content,
+.tp-splash .sl-markdown-content {
+	font-size: 1.0625rem;
+}
+.tp-section {
+	margin-top: 3rem;
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+	gap: 2.5rem;
+	align-items: start;
+}
+.tp-section > div:first-child h2 {
+	margin-top: 0.25rem;
+}
+.tp-section p {
+	color: var(--tp-ink-2);
+	max-width: 40ch;
+}
+@media (max-width: 50rem) {
+	.tp-section {
+		grid-template-columns: 1fr;
+		gap: 1.25rem;
+	}
+}
+.tp-label {
+	font-size: 0.75rem;
+	letter-spacing: 0.14em;
+	text-transform: uppercase;
+	color: var(--tp-red);
+	font-weight: 700;
+}
+
+/* étapes numérotées, façon carnet */
+.tp-steps {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+	counter-reset: s;
+	border-top: 1px solid var(--tp-rule);
+}
+.tp-steps li {
+	counter-increment: s;
+	display: grid;
+	grid-template-columns: 2.75rem 1fr auto;
+	gap: 0.9rem;
+	align-items: start;
+	padding: 1rem 0;
+	border-bottom: 1px solid var(--tp-rule);
+	margin: 0;
+}
+.tp-steps li::before {
+	content: counter(s, decimal-leading-zero);
+	font-family: var(--tp-font-display);
+	font-weight: 800;
+	font-size: 1.375rem;
+	letter-spacing: -0.03em;
+	color: var(--tp-red);
+	line-height: 1.1;
+	font-variant-numeric: tabular-nums;
+}
+.tp-steps b {
+	display: block;
+	font-weight: 700;
+}
+.tp-steps span {
+	color: var(--tp-ink-2);
+	font-size: 0.9375rem;
+}
+.tp-steps small {
+	font-size: 0.8125rem;
+	color: var(--tp-ink-3);
+	white-space: nowrap;
+	padding-top: 0.2rem;
+}
+
+/* cartes (boîtiers, écosystème) */
+.tp-cards {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+	gap: 1.25rem;
+	margin-top: 1.5rem;
+}
+.tp-card {
+	border: 1px solid var(--tp-rule);
+	border-radius: var(--tp-radius-lg);
+	background: var(--tp-paper-2);
+	padding: 1.1rem 1.25rem 1.25rem;
+}
+.tp-card h3 {
+	font-family: var(--tp-font-display);
+	font-weight: 800;
+	font-size: 1.125rem;
+	letter-spacing: -0.02em;
+	margin: 0.25rem 0 0.4rem;
+}
+.tp-card p {
+	margin: 0 0 0.75rem;
+	font-size: 0.9375rem;
+	color: var(--tp-ink-2);
+}
+.tp-card dl {
+	display: grid;
+	grid-template-columns: auto 1fr;
+	gap: 0.25rem 0.75rem;
+	margin: 0 0 0.9rem;
+	font-size: 0.875rem;
+}
+.tp-card dt {
+	color: var(--tp-ink-3);
+}
+.tp-card dd {
+	margin: 0;
+	font-variant-numeric: tabular-nums;
+}
+.tp-card .tp-dl {
+	display: flex;
+	gap: 0.5rem;
+	flex-wrap: wrap;
+}
+.tp-card .tp-dl a {
+	font-size: 0.8125rem;
+	font-weight: 700;
+	text-decoration: none;
+	padding: 0.35rem 0.85rem;
+	border-radius: 999px;
+	border: 1.5px solid var(--tp-rule);
+	color: var(--tp-ink);
+}
+.tp-card .tp-dl a.primary {
+	background: var(--tp-ink);
+	color: var(--tp-paper);
+	border-color: var(--tp-ink);
+}
+.tp-card.dim {
+	background: transparent;
+	border-style: dashed;
+}
+
+/* chaîne de l'écosystème */
+.tp-chain {
+	display: grid;
+	grid-template-columns: repeat(3, 1fr);
+	gap: 0.75rem;
+	margin: 1.5rem 0;
+}
+.tp-chain > div {
+	border: 1px solid var(--tp-rule);
+	border-radius: var(--tp-radius);
+	background: var(--tp-paper-2);
+	padding: 0.9rem 1rem;
+}
+.tp-chain b {
+	display: block;
+	font-family: var(--tp-font-display);
+	font-weight: 800;
+	font-size: 1.25rem;
+	letter-spacing: -0.03em;
+}
+.tp-chain b i {
+	font-style: normal;
+	color: var(--tp-red);
+}
+.tp-chain span {
+	font-size: 0.875rem;
+	color: var(--tp-ink-2);
+}
+.tp-chain.current > div:first-child {
+	border-color: var(--tp-ink);
+}
+@media (max-width: 40rem) {
+	.tp-chain {
+		grid-template-columns: 1fr;
+	}
+}
+
+/* liste d'achat */
+.tp-bom td:last-child,
+.tp-bom th:last-child {
+	white-space: nowrap;
+}

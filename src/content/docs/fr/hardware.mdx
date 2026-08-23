@@ -1,0 +1,63 @@
+---
+title: Matériel
+description: Liste d'achat, boîtiers à imprimer (STL + sources OpenSCAD), firmware des ancres.
+template: splash
+---
+
+<div class="tp-splash">
+
+## Trois ancres, un tag, une imprimante.
+
+Tout est en vente libre chez [Makerfabs](https://www.makerfabs.com). Les boîtiers sont paramétriques en OpenSCAD : si votre module change, le boîtier suit.
+
+<div class="tp-bom">
+
+| Composant | Rôle | Quantité | Source |
+|---|---|---|---|
+| [MaUWB ESP32S3](https://www.makerfabs.com/mauwb-esp32s3-uwb-module.html) (DW3000 + PA) | Ancre (fixe, autour du plateau) | 3 minimum, 8 maximum | Makerfabs |
+| [MaUWB Direct](https://www.makerfabs.com/mauwb-direct.html) | Tag (porté par le performer), ou ancre supplémentaire | 1 par performer | Makerfabs |
+| Câble USB-C | Données, pas « charge seule » | 1 par ancre | — |
+| Alimentation USB 5 V, 1 A minimum | Ancres | selon le câblage | — |
+| Filament PLA ou PETG | Boîtiers | quelques dizaines de grammes par boîtier | — |
+| Télémètre laser | Calibration en salle, précision millimétrique | 1 | vous l'avez déjà |
+
+</div>
+
+Un kit minimal — trois ancres en triangle, jamais alignées, montées à 2–3 m, un tag — suffit pour du tracking 2D sur un plateau de théâtre. Ajoutez des ancres pour couvrir plus grand ou passer en 3D. Le détail est dans le guide : [Matériel requis](/fr/start/01-hardware/).
+
+## Boîtiers à imprimer
+
+Deux pièces, base et couvercle clipsable, FDM **sans support**. Conçus pour le module MaUWB ESP32-S3 (PCB 73 × 33 × 12 mm). Sources OpenSCAD et STL dans le dépôt, sous licence CERN-OHL-P v2.
+
+<div class="tp-cards">
+  <div class="tp-card">
+    <span class="tp-label">Ancre</span>
+    <h3>Boîtier ancre</h3>
+    <p>Passage USB-C et écran OLED en façade, antenne UWB dégagée. Paroi 2 mm, fond et couvercle 1,6 mm.</p>
+    <dl><dt>Module</dt><dd>MaUWB ESP32-S3</dd><dt>Matière</dt><dd>PLA ou PETG</dd><dt>Support</dt><dd>aucun</dd></dl>
+    <div class="tp-dl"><a class="primary" href="https://github.com/yokoul/topos/tree/main/hardware/casing">STL + SCAD</a><a href="https://github.com/yokoul/topos/blob/main/hardware/casing/README.md">Regénérer</a></div>
+  </div>
+  <div class="tp-card dim">
+    <span class="tp-label">Tag</span>
+    <h3>Boîtier tag</h3>
+    <p>Porté par le performer. En cours de conception.</p>
+    <dl><dt>Module</dt><dd>MaUWB Direct</dd><dt>État</dt><dd>à venir</dd></dl>
+  </div>
+  <div class="tp-card dim">
+    <span class="tp-label">Photos</span>
+    <h3>Boîtiers imprimés</h3>
+    <p>Les photos d'atelier et les réglages d'impression validés arrivent ici après les essais.</p>
+  </div>
+</div>
+
+## Firmware des ancres
+
+Arduino pour ESP32-S3 : ranging UWB, WiFi par portail captif (pas de reflash par salle), envoi UDP vers Topos, écran OLED avec l'identifiant et l'IP. Un seul paramètre à changer par ancre avant de flasher : son numéro.
+
+<a class="sl-link-button secondary" href="/fr/reference/02-firmware/">Guide du firmware</a>
+
+## Ce que Topos ne demande pas
+
+Pas de carte électronique à fabriquer, pas de composant à souder. Les modules arrivent prêts à flasher ; les tags se configurent depuis le dashboard de Topos, sans Arduino IDE. Une imprimante 3D pour les boîtiers, et c'est tout.
+
+</div>
