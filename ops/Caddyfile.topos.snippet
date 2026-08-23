@@ -1,0 +1,33 @@
+	# topos : topos.red → site statique (Astro) servi directement par Caddy
+	# depuis ~/apps/topos-site/dist (construit sur place par ch.oul.topos-site,
+	# cf. ~/apps/topos-site/ops/). Public Hostname tunnel → localhost:8080.
+	# Flag ~/apps/edge-proxy/flags/topos-site.maintenance → 503 (page générique
+	# servie par le handle_errors global). DOIT rester AVANT le catch-all.
+	@topos host topos.red www.topos.red
+	handle @topos {
+		root * /Users/may/apps/topos-site/dist
+		encode gzip
+
+		@topos_www host www.topos.red
+		redir @topos_www https://topos.red{uri} permanent
+
+		@topos_planned file {
+			root /Users/may/apps/edge-proxy/flags
+			try_files /topos-site.maintenance
+		}
+		handle @topos_planned {
+			error "planned maintenance" 503
+		}
+
+		# 404 propre : Astro génère dist/404.html
+		@topos_missing not file {path} {path}/index.html
+		handle @topos_missing {
+			rewrite * /404.html
+			file_server {
+				status 404
+			}
+		}
+
+		file_server
+	}
+

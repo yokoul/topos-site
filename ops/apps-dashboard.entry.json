@@ -1,0 +1,29 @@
+{
+  "ch.oul.topos-site": {
+    "group": "topos",
+    "actions": {
+      "redeploy": {
+        "label": "Redeploy",
+        "command": ["bash", "-lc", "~/apps/topos-site/ops/deploy.sh --force"],
+        "restartAfter": false,
+        "confirm": true
+      },
+      "pull": {
+        "label": "Git pull",
+        "command": ["bash", "-lc", "set -e; cd ~/apps/topos-site && git pull --ff-only"],
+        "restartAfter": false
+      },
+      "maintenance_on": {
+        "label": "🛠️ Maintenance ON",
+        "command": ["bash", "-lc", "touch ~/apps/edge-proxy/flags/topos-site.maintenance && echo 'topos-site: page de maintenance ACTIVÉE (edge-proxy)'"],
+        "restartAfter": false,
+        "confirm": true
+      },
+      "maintenance_off": {
+        "label": "✅ Maintenance OFF",
+        "command": ["bash", "-lc", "rm -f ~/apps/edge-proxy/flags/topos-site.maintenance && echo 'topos-site: page de maintenance DÉSACTIVÉE (edge-proxy)'"],
+        "restartAfter": false
+      }
+    }
+  }
+}

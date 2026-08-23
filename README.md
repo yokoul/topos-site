@@ -2,7 +2,7 @@
 
 Site public de [topos](https://github.com/yokoul/topos) — tracking UWB open hardware pour le spectacle vivant.
 
-Astro + Starlight, statique, trois langues (en · fr · zh), déployé sur Alwaysdata derrière Cloudflare à chaque push sur `main`.
+Astro + Starlight, statique, trois langues (en · fr · zh), servi par Caddy sur le serveur `always` derrière un tunnel Cloudflare. Un push sur `main` est en ligne dans les 5 minutes.
 
 ## Développer
 
@@ -22,14 +22,7 @@ Thème « Plan de scène, édition lisible » — tokens dans `src/styles/topos.
 
 ## Déploiement
 
-`.github/workflows/deploy.yml` construit à chaque push et PR, et déploie `main` par rsync SSH. Secrets attendus dans l'environnement `production` :
-
-| Secret | Valeur |
-|---|---|
-| `ALWAYSDATA_SSH_KEY` | clé privée de déploiement (ed25519) |
-| `ALWAYSDATA_HOST` | `ssh-<compte>.alwaysdata.net` |
-| `ALWAYSDATA_USER` | `<compte>` ou `<compte>_deploy` |
-| `ALWAYSDATA_PATH` | `/home/<compte>/www/topos.red` |
+Pull-based sur `always` : voir [`ops/README.md`](ops/README.md). GitHub Actions ne fait que vérifier le build.
 
 Le site est en `noindex` tant que `NOINDEX = true` dans `astro.config.mjs` et que `public/robots.txt` interdit tout. Les deux se retirent au lancement.
 
