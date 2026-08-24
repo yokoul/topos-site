@@ -463,6 +463,9 @@ h1[data-page-title],
 	color: var(--tp-ink);
 	font-weight: 700;
 }
+.tp-portrait {
+	max-width: 26rem;
+}
 .tp-gallery {
 	display: grid;
 	gap: 2rem;

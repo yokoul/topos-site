@@ -5,6 +5,7 @@ template: splash
 ---
 
 import Shot from '../../../components/Shot.astro';
+import Photo from '../../../components/Photo.astro';
 
 <div class="tp-splash">
 
@@ -45,18 +46,24 @@ Deux pièces, base et couvercle clipsable, FDM **sans support**. Conçus pour le
     <p>Porté par le performer. En cours de conception.</p>
     <dl><dt>Module</dt><dd>MaUWB Direct</dd><dt>État</dt><dd>à venir</dd></dl>
   </div>
-  <div class="tp-card dim">
+  <div class="tp-card">
     <span class="tp-label">Photos</span>
     <h3>Boîtiers imprimés</h3>
-    <p>Les photos d'atelier et les réglages d'impression validés arrivent ici après les essais.</p>
+    <p>Les premières ancres montées sont en photos dans la <a href="/fr/gallery/">galerie</a> ; les réglages d'impression validés arrivent ici.</p>
   </div>
 </div>
+
+<Photo name="ancre-fermee-ecran" alt="Ancre Topos fermée vue de face : écran OLED affichant l'identifiant A4, la portée UWB, l'IP de l'ancre et la destination des mesures" title="En façade">l'écran OLED dans l'ouverture du couvercle : identifiant, dernière portée mesurée, IP de l'ancre et serveur Topos de destination.</Photo>
 
 ## Firmware des ancres
 
 Arduino pour ESP32-S3 : ranging UWB, WiFi par portail captif (pas de reflash par salle), envoi UDP vers Topos, écran OLED avec l'identifiant et l'IP. Un seul paramètre à changer par ancre avant de flasher : son numéro.
 
 <Shot name="mauwb-reset" alt="Module MaUWB ESP32-S3 vu de dessus, bouton RST entouré en bas à gauche de l'écran OLED" title="Changer de salle">deux pressions sur <b>RST</b> en moins de 10 s effacent le WiFi mémorisé et rouvrent le portail de configuration. L'autre bouton, FLASH, ne sert qu'au flashage. Détail au <a href="/fr/start/02-anchors/#changing-wifi-network-new-venue">chapitre 2.4</a>.</Shot>
+
+<div class="tp-portrait">
+  <Shot name="anchor-portal" alt="Portail web d'une ancre Topos : SSID, IP locale, destination Topos, champ pour changer l'IP du serveur, bouton forget wifi & reboot" title="Portail de l'ancre">chaque ancre sert sa propre page web : réseau mémorisé, IP, destination des mesures, changement de serveur Topos et oubli du WiFi — depuis n'importe quel navigateur de la régie.</Shot>
+</div>
 
 <a class="sl-link-button secondary" href="/fr/reference/02-firmware/">Guide du firmware</a>
 

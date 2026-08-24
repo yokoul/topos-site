@@ -5,6 +5,7 @@ template: splash
 ---
 
 import Shot from '../../../components/Shot.astro';
+import Photo from '../../../components/Photo.astro';
 
 <div class="tp-splash">
 
@@ -45,18 +46,24 @@ Two parts, base and snap-on lid, FDM **with no supports**. Designed for the MaUW
     <p>Worn by the performer. In design.</p>
     <dl><dt>Module</dt><dd>MaUWB Direct</dd><dt>Status</dt><dd>coming</dd></dl>
   </div>
-  <div class="tp-card dim">
+  <div class="tp-card">
     <span class="tp-label">Photos</span>
     <h3>Printed cases</h3>
-    <p>Workshop photos and validated print settings land here after testing.</p>
+    <p>The first assembled anchors are pictured in the <a href="/en/gallery/">gallery</a>; validated print settings land here next.</p>
   </div>
 </div>
+
+<Photo name="ancre-fermee-ecran" alt="Closed Topos anchor seen from the front: OLED screen showing the A4 identifier, the UWB range, the anchor's IP and the measurement destination" title="Front panel">the OLED screen through the lid opening: identifier, last measured range, the anchor's IP and the Topos server it feeds.</Photo>
 
 ## Anchor firmware
 
 Arduino for ESP32-S3: UWB ranging, WiFi via captive portal (no reflash per venue), UDP streaming to Topos, OLED showing the anchor ID and IP. One parameter to change per anchor before flashing: its number.
 
 <Shot name="mauwb-reset" alt="MaUWB ESP32-S3 module seen from above, RST button circled at the bottom left of the OLED" title="Changing venue">press <b>RST</b> twice within 10 s to wipe the stored WiFi and reopen the setup portal. The other button, FLASH, is only for flashing. Details in <a href="/en/start/02-anchors/#changing-wifi-network-new-venue">chapter 2.4</a>.</Shot>
+
+<div class="tp-portrait">
+  <Shot name="anchor-portal" alt="Web portal of a Topos anchor: SSID, local IP, Topos destination, field to change the server IP, forget wifi & reboot button" title="Anchor portal">each anchor serves its own web page: stored network, IP, measurement destination, changing the Topos server and forgetting the WiFi — from any browser in the control room.</Shot>
+</div>
 
 <a class="sl-link-button secondary" href="/en/reference/02-firmware/">Firmware guide</a>
 

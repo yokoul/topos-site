@@ -1,27 +1,33 @@
 ---
 title: Galerie
-description: Le dashboard Topos en images, et bientôt l'atelier et le plateau.
+description: Le dashboard Topos en images, les premières ancres sorties de l'imprimante, et bientôt le plateau.
 template: splash
 ---
 
 import Shot from '../../../components/Shot.astro';
+import Photo from '../../../components/Photo.astro';
 
 <div class="tp-splash">
 
 ## Le dashboard
 
-Captures réalisées en mode `--simulate` : trois ancres, trois performers, aucun matériel. C'est exactement ce que vous verrez après `python -m topos.main --simulate circle`.
+Captures réalisées en mode `--simulate` : six ancres, trois performers, aucun matériel. C'est exactement ce que vous verrez après `python -m topos.main --simulate circle`.
 
 <div class="tp-gallery">
-  <Shot name="dashboard-show" alt="Dashboard Topos en mode show : vue du plateau, trois ancres en losanges, trois performers nommés avec leur trace" title="Show">la vue de régie. Le plateau vu d'en haut, FACE en bas, LOINTAIN en haut. Chaque performer a son nom, sa position en mètres, sa qualité de signal et son délai de ghost.</Shot>
+  <Shot name="dashboard-show" alt="Dashboard Topos en mode show : vue du plateau, six ancres en losanges, trois performers nommés avec leur trace" title="Show">la vue de régie. Le plateau vu d'en haut, FACE en bas, LOINTAIN en haut. Chaque performer a son nom, sa position en mètres, sa qualité de signal et son délai de ghost.</Shot>
+  <Shot name="dashboard-show-light" alt="Le même dashboard Topos en thème clair : fond papier, ancres et performers sur la vue du plateau" title="Show, thème clair">le même dashboard en thème clair — pour les régies éclairées, un clic suffit pour basculer.</Shot>
   <Shot name="dashboard-anchors" alt="Dashboard Topos en mode anchors : panneau de calibration avec hauteurs et distances en millimètres, liste des presets" title="Anchors">la calibration. Hauteur et distances de chaque ancre en millimètres, telles que lues au télémètre ; Topos calcule les positions. Les presets enregistrent une salle entière.</Shot>
   <Shot name="dashboard-outputs" alt="Dashboard Topos en mode outputs : cartes PSN, OSC, ADM-OSC, WebSocket, Art-Net avec leurs interrupteurs et destinations" title="Outputs">les sorties. Un interrupteur par protocole, la destination et la cadence en clair. PSN en multicast vers la console, OSC vers le son.</Shot>
 </div>
 
 ## L'atelier et le plateau
 
+L'ancre A4 sous tension dans son boîtier imprimé, photographiée à l'atelier le 24 août 2026.
+
 <div class="tp-gallery">
-  <div class="tp-placeholder"><b>Boîtiers imprimés</b>Photos des ancres ouvertes et fermées, à venir après les essais d'impression.</div>
+  <Photo name="ancre-fermee-trois-quarts" alt="Ancre Topos fermée en trois quarts : boîtier imprimé noir, écran OLED allumé affichant topos anchor A4, la portée UWB et les adresses IP" title="Ancre fermée">boîtier deux pièces, écran OLED en façade : identifiant, dernière portée UWB mesurée, IP de l'ancre et destination des mesures.</Photo>
+  <Photo name="ancre-ouverte-couvercle" alt="Ancre Topos ouverte : module MaUWB ESP32-S3 rouge dans la base du boîtier, couvercle clipsable posé à côté" title="Ancre ouverte">le module MaUWB ESP32-S3 posé dans la base, couvercle clipsable à côté. Aucune soudure, aucune vis côté module.</Photo>
+  <Photo name="ancre-ouverte-detail" alt="Détail de l'ancre Topos ouverte : câble USB-C coudé, boutons RST et FLASH accessibles, connecteur batterie JST" title="Détail">USB-C coudé pour l'alimentation, boutons RST et FLASH accessibles boîtier ouvert, connecteur batterie pour les essais sans câble.</Photo>
   <div class="tp-placeholder"><b>En salle</b>Ancres posées au Douze Dix-Huit, tag sur un performer, télémètre en main.</div>
   <div class="tp-placeholder"><b>Vidéos</b>« Le tracking en cinq minutes » et « la calibration au télémètre », en tournage.</div>
 </div>

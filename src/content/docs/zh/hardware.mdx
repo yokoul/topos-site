@@ -5,6 +5,7 @@ template: splash
 ---
 
 import Shot from '../../../components/Shot.astro';
+import Photo from '../../../components/Photo.astro';
 
 <div class="tp-splash">
 
@@ -45,18 +46,24 @@ import Shot from '../../../components/Shot.astro';
     <p>演员佩戴。设计中。</p>
     <dl><dt>模块</dt><dd>MaUWB Direct</dd><dt>状态</dt><dd>即将推出</dd></dl>
   </div>
-  <div class="tp-card dim">
+  <div class="tp-card">
     <span class="tp-label">照片</span>
     <h3>打印成品</h3>
-    <p>工作坊照片和经验证的打印参数将在测试后发布于此。</p>
+    <p>首批组装完成的基站照片已在<a href="/zh/gallery/">图库</a>中；经验证的打印参数将随后发布于此。</p>
   </div>
 </div>
+
+<Photo name="ancre-fermee-ecran" alt="闭合的 Topos 基站正面视图：OLED 屏幕显示 A4 标识符、UWB 测距、基站 IP 和测量数据目标地址" title="正面">上盖开口中的 OLED 屏幕：标识符、最近一次测距、基站 IP 及其推送数据的 Topos 服务器。</Photo>
 
 ## 基站固件
 
 ESP32-S3 的 Arduino 固件：UWB 测距、配网页面连接 WiFi（换场馆无需重新烧录）、UDP 推流到 Topos、OLED 显示基站编号和 IP。每个基站烧录前只需改一个参数：它的编号。
 
 <Shot name="mauwb-reset" alt="MaUWB ESP32-S3 模块俯视图，OLED 左下方的 RST 按钮被圈出" title="更换场馆">在 10 秒内按两次 <b>RST</b>，即可清除已保存的 WiFi 并重新打开配网页面。另一个按钮 FLASH 仅用于烧录。详见<a href="/zh/start/02-anchors/#changing-wifi-network-new-venue">第 2.4 节</a>。</Shot>
+
+<div class="tp-portrait">
+  <Shot name="anchor-portal" alt="Topos 基站的网页：SSID、本机 IP、Topos 目标地址、可修改服务器 IP 的输入框、forget wifi & reboot 按钮" title="基站页面">每个基站都自带网页：已保存的网络、IP、测量数据目标地址，可更换 Topos 服务器或清除 WiFi——在控制室的任何浏览器中打开即可。</Shot>
+</div>
 
 <a class="sl-link-button secondary" href="/zh/reference/02-firmware/">固件指南</a>
 

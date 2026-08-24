@@ -1,0 +1,24 @@
+---
+/**
+ * Photo d'atelier optimisée (Astro Image) avec légende.
+ *   <Photo name="ancre-fermee-trois-quarts" alt="…">Légende</Photo>
+ * Sources : src/assets/photos/*.jpg (2000 px max, EXIF retiré).
+ */
+import { Image } from 'astro:assets';
+const photos = import.meta.glob<{ default: ImageMetadata }>('../assets/photos/*.jpg', {
+	eager: true,
+});
+interface Props {
+	name: string;
+	alt: string;
+	title?: string;
+}
+const { name, alt, title } = Astro.props;
+const src = photos[`../assets/photos/${name}.jpg`]?.default;
+if (!src) throw new Error(`Photo introuvable : ${name}`);
+---
+
+<figure class="tp-shot tp-photo">
+	<Image {src} {alt} widths={[800, 1200, 1600]} sizes="(max-width: 50rem) 100vw, 46rem" format="webp" quality={80} />
+	<figcaption>{title && <b>{title} — </b>}<slot /></figcaption>
+</figure>
