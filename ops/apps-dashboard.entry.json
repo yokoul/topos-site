@@ -1,6 +1,8 @@
 {
   "ch.oul.topos-site": {
     "group": "topos",
+    "kind": "periodic",
+    "heartbeatPath": "~/Library/Logs/apps/topos-site.last-run",
     "actions": {
       "redeploy": {
         "label": "Redeploy",

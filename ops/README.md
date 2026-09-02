@@ -13,8 +13,25 @@ Pas de rsync, pas de serveur applicatif : Caddy sert les fichiers construits sur
 | **Dashboard** | entrée `ch.oul.topos-site` (`ops/apps-dashboard.entry.json`) : Redeploy / Git pull / Maintenance |
 | **Maintenance** | flag `~/apps/edge-proxy/flags/topos-site.maintenance` → 503 + page générique |
 | **Logs** | `~/Library/Logs/apps/topos-site.{out,err}.log`, build dans `/tmp/topos-site-build.log` |
+| **Heartbeat** | `~/Library/Logs/apps/topos-site.last-run`, touché à chaque passage réussi |
 
-Un push sur `main` est en ligne dans les 5 minutes. « Redeploy » dans le dashboard force un rebuild immédiat.
+Un push sur `main` est en ligne dans les 5 minutes. « Lancer » dans le dashboard force un rebuild immédiat.
+
+## Statut dans le dashboard
+
+Ce daemon n'est pas un serveur : il sort dès son travail fait, donc il n'a aucun
+PID entre deux passages. Le dashboard le traite comme un **job périodique**
+(`"kind": "periodic"` dans `apps.config.json`) et juge sa santé sur la fraîcheur
+du fichier `heartbeatPath` plutôt que sur la présence d'un process :
+
+- **vert** — dernier passage il y a moins de 3 intervalles (15 min) et sorti en 0 ;
+- **rouge** — plus aucun passage depuis 15 min (job mort), dernier passage en échec, ou daemon déchargé ;
+- **jaune** — `kind: periodic` sans `heartbeatPath` : la fraîcheur n'est pas suivie.
+
+C'est `deploy.sh` qui écrit ce heartbeat (fonction `beat`), **y compris quand il
+n'y a rien à déployer** — sans quoi le fichier ne serait touché qu'aux rares
+rebuilds et le job passerait pour mort. Avant cette bascule, topos-site
+s'affichait en rouge en permanence alors que le site tournait.
 
 ## Cloudflare (zone topos.red)
 
